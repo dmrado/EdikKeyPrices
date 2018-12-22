@@ -1,0 +1,265 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.3
+-- https://www.phpmyadmin.net/
+--
+-- Хост: localhost:8889
+-- Время создания: Дек 22 2018 г., 10:56
+-- Версия сервера: 5.6.35
+-- Версия PHP: 7.1.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- База данных: `EdikKeyPricesdb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `carbrands`
+--
+
+CREATE TABLE `carbrands` (
+  `carbrand_id` int(10) UNSIGNED NOT NULL,
+  `carbrand_name` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `carbrands`
+--
+
+INSERT INTO `carbrands` (`carbrand_id`, `carbrand_name`) VALUES
+(1, 'ACURA'),
+(2, 'ALFA ROMEO'),
+(3, 'AUDI'),
+(4, 'BMW'),
+(5, 'BUICK'),
+(6, 'CADILLAC'),
+(7, 'CHEVROLET'),
+(8, 'CHRYSLER'),
+(9, 'CITROEN'),
+(10, 'DODGE'),
+(11, 'EAGLE'),
+(12, 'FIAT'),
+(13, 'FORD'),
+(14, 'GMC'),
+(15, 'HOLDEN'),
+(16, 'HONDA'),
+(17, 'HUMMER'),
+(18, 'HYUNDAI'),
+(19, 'INFINITI'),
+(20, 'ISUZU'),
+(21, 'IVECO'),
+(22, 'JEEP'),
+(23, 'KIA'),
+(24, 'LADA'),
+(25, 'LANCIA'),
+(26, 'LEXUS'),
+(27, 'MAZDA'),
+(28, 'MERCEDES'),
+(29, 'MERCURY'),
+(30, 'MITSUBISHI'),
+(31, 'NISSAN'),
+(32, 'OLDSMOBILE'),
+(33, 'OPEL'),
+(34, 'PEUGEOT'),
+(35, 'PONTIAC'),
+(36, 'PORSCHE'),
+(37, 'PROTON'),
+(38, 'RENAULT'),
+(39, 'SAAB'),
+(40, 'SATURN'),
+(41, 'SSANGYONG'),
+(42, 'SEAT'),
+(43, 'SKODA'),
+(44, 'SUBARU'),
+(45, 'SUZUKI'),
+(46, 'TOYOTA'),
+(47, 'VOLKSWAGEN'),
+(48, 'VOLVO'),
+(49, 'MOTO'),
+(50, 'ДРУГОЕ');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `carmods`
+--
+
+CREATE TABLE `carmods` (
+  `carmod_id` int(10) UNSIGNED NOT NULL,
+  `carbrand_id` smallint(6) NOT NULL,
+  `carmod_name` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `carmods`
+--
+
+INSERT INTO `carmods` (`carmod_id`, `carbrand_id`, `carmod_name`) VALUES
+(1, 2, '145'),
+(2, 2, '146');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `caryears`
+--
+
+CREATE TABLE `caryears` (
+  `caryear_id` int(10) UNSIGNED NOT NULL,
+  `carmod_id` smallint(6) NOT NULL,
+  `caryear` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `caryears`
+--
+
+INSERT INTO `caryears` (`caryear_id`, `carmod_id`, `caryear`) VALUES
+(1, 1, '1995-01-01'),
+(2, 2, '1995-01-01');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `keys`
+--
+
+CREATE TABLE `keys` (
+  `key_id` int(10) UNSIGNED NOT NULL,
+  `caryear_id` smallint(6) NOT NULL,
+  `keyName` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keySubscr` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keyPict` smallint(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2018_11_20_185016_first_level_carbrand', 1),
+(4, '2018_11_20_185037_second_level_carmod', 1),
+(5, '2018_11_20_185051_third_level_caryear', 1),
+(6, '2018_11_20_191807_fourth_level_key_vendor', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `carbrands`
+--
+ALTER TABLE `carbrands`
+  ADD PRIMARY KEY (`carbrand_id`);
+
+--
+-- Индексы таблицы `carmods`
+--
+ALTER TABLE `carmods`
+  ADD PRIMARY KEY (`carmod_id`);
+
+--
+-- Индексы таблицы `caryears`
+--
+ALTER TABLE `caryears`
+  ADD PRIMARY KEY (`caryear_id`);
+
+--
+-- Индексы таблицы `keys`
+--
+ALTER TABLE `keys`
+  ADD PRIMARY KEY (`key_id`);
+
+--
+-- Индексы таблицы `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `carbrands`
+--
+ALTER TABLE `carbrands`
+  MODIFY `carbrand_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+--
+-- AUTO_INCREMENT для таблицы `carmods`
+--
+ALTER TABLE `carmods`
+  MODIFY `carmod_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT для таблицы `caryears`
+--
+ALTER TABLE `caryears`
+  MODIFY `caryear_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT для таблицы `keys`
+--
+ALTER TABLE `keys`
+  MODIFY `key_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблицы `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
