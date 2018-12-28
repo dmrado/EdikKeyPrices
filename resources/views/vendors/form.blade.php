@@ -31,36 +31,23 @@
 </head>
 <body>
 <br/>
-<div class="container">
-
+<script>
+    var divContainer = document.createElement('div');
+    divContainer.setAttribute('class', 'container');
+    var divStyle = document.createElement('div');
+    divStyle.setAttribute('class', 'style');
+</script>
+<!--<div class="container">-->
 <div style="...">
 
         {{-- <form action="{{action("CarBrandController@getCarBrand", ["carbrand" => $carbrand_name->carbrand_name])}}"><!--стр 460 action --> --}}
 
         <div class="form-group">
             <h2 align="center">Выбирайте ключ для своего автомобиля</h2><br/>
+        <label>Выберите</label><br/>
+            <select id="first_level" name="first_level" multiple class="form-control">
 
-
-
-                <label>Выберите</label><br/>
-
-            <select id="first_level" name="first_level[]" multiple class="form-control">
-
-                @if ($carbrand_name > 0);
-            @foreach($carbrand_name as $row)
-
-            <!--как правильно обратиться в к массиву в blade-->
-
-                @php echo "<pre>";
-                        print_r($carbrand_name);
-                        echo "</pre>";
-                @endphp
-
-            @endforeach
-            <li><option value="'.$row['carbrand_name'].'"></option></li>
-            @endif
             </select>
-
         </div><!--end 1 div class="form-group"-->
 
         <div class="form-group">
@@ -84,8 +71,6 @@
             </select>
         </div><!--end 4 div class="form-group"-->
 </div><!--end div style "..."-->
-
-
 </div><!--end div container-->
 </body>
 </html>
