@@ -1,20 +1,3 @@
-<!--<!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>navbar</title>
-        <script src="../../js/jquery-ui.js"></script>
-        <script src="../../js/jquery.js"></script>
-        <script src="../../js/angular.min.js"></script>
-        <script src="../../js/angular-datatables.min.js"></script>
-        <script src="../../js/jquery.dataTables.min.js"></script>
-        <script src="../../js/bootstrap.js"></script>
-        <script src="../../js/site.js"></script>
-        <script src="../../js/app.js"></script>
-    </head>
-        <body>-->
 <div id="pad">
     <div class="navbar navbar-default">
         <div class="container-fluid">
