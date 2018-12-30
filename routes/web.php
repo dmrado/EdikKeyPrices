@@ -16,6 +16,7 @@
 });*/
 
 Route::get('/', 'CategoryController@index');
+Route::get('/keys', 'CategoryController@keys');
 
 Route::get('/form', 'CategoryController@form');
 
