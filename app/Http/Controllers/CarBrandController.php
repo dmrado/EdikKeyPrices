@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Carbrand;
-use App\Carmod;
-use App\Caryear;
-use App\Key;
+//use App\Carmod;
+//use App\Caryear;
+//use App\Key;
+//
+//use Illuminate\Auth\EloquentUserProvider;
+//use Illuminate\Http\Request;
+////use Illuminate\Support\Facades\DB;
 
-use Illuminate\Auth\EloquentUserProvider;
-use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\DB;
-
-class CarBrandController extends EloquentUserProvider
+class CarBrandController extends Controller
 {
     public function getCarBrand(){
             $carbrand_name = Carbrand::select("carbrand_name")->get();//берет отсюда

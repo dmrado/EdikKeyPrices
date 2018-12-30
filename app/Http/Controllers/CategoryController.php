@@ -16,6 +16,11 @@ class CategoryController extends Controller
         return view('keys');
     }
 
+    public function serv(){
+        $this->parentView = "layouts.agency";
+        return view('serv');
+    }
+
 //   public function form()
 //   {
 //       return view('vendors.form');

@@ -1,3 +1,7 @@
+<?php
+/** @var $carBrands [Cardrand] */
+?>
+
 <form role='form' class="form-inline">
 
         <h2 align="center">Выберите свой автомобиль и тип нужного ключа</h2><br/>
@@ -5,6 +9,10 @@
     <div class="form-group">
     <label for="марка" class="sr-only"></label><br/>
         <select id="first_level" name="first_level" multiple class="form-control">
+
+            @foreach($carBrands as $row)
+                <option value="{{$row->carbrand_id}}">{{$row->carbrand_name}}</option>
+           @endforeach
 
         </select>
     </div><!--end 1 div class="form-group"-->

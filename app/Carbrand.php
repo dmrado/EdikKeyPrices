@@ -7,6 +7,9 @@ use App\Observers\Observer;
 
 class Carbrand extends Model//здесь возможно должно быть Eloquent
 {
+    public $carbrand_id;
+    public $carbrand_name;
+
     public function carmods(){
         return $this->hasMany("App\Carmod", "carmod_id", "carbrand_id");
     }

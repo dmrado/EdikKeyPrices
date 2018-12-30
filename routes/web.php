@@ -17,6 +17,7 @@
 
 Route::get('/', 'CategoryController@index');
 Route::get('/keys', 'CategoryController@keys');
+Route::get('/serv', 'CategoryController@serv');
 
 Route::get('/form', 'CategoryController@form');
 
