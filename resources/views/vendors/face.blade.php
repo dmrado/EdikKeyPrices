@@ -22,9 +22,26 @@
     colRight.style.height = '600px';
     colRight.style.margin = '20px 0';
 
-    var form = document.createElement('form');
-    form.innerText = 'Сюда потом вкорячить форму сверху динамически, потому что потом будет еще форма заказа динамически';
-    colRight.appendChild(form);
+    var formKeyChoice = document.createElement('form');
+    // form.setAttribute('id', 'formKeyChoice');
+    // form.setAttribute('name', 'formKeyChoice');
+    // form.setAttribute('method', 'post');
+    // form.setAttribute('action', '#');
+    // var inputCarBrand = document.createElement('input');
+    // inputCarBrand.setAttribute('type', 'text');
+    // inputCarBrand.setAttribute('placeholder', 'Введите марку машинки');
+    // var submit = document.createElement('button');
+    // submit.setAttribute('type', 'submit');
+    // submit.setAttribute('class', 'class="col-sm-offset-2 col-sm-4');
+    // submit.setAttribute('class', 'btn btn-succes');
+    //
+    // inputCarBrand.appendChild(submit);
+    // formKeyChoice.appendChild(inputCarBrand);
+    // colRight.appendChild(formKeyChoice);
+
+
+    formKeyChoice.innerHTML = 'Сюда потом вкорячить форму сверху динамически, потому что потом будет еще форма заказа динамически';
+    colRight.appendChild(formKeyChoice);
 
     //colRight.style.position = 'relative';
     //colRight.setAttribute('class', 'text-center');

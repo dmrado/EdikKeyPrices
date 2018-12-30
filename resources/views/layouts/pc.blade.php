@@ -9,6 +9,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 
         <!-- Styles -->
         <!-- <script src="../../js/jquery-ui.js"></script>
@@ -19,16 +21,17 @@
          <script src="../../js/bootstrap.js"></script>
          <script src="../../js/site.js"></script>
          <script src="../../js/app.js"></script>-->
+        {{--<script src="https://code.jquery.com/jquery-3.1.1.js"></script>--}}
+        {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />--}}
+        {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>--}}
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 
-    <script src="#"></script>
+
+        <script src="#"></script>
     @stack("head")<!--сюда поместим тег, привязывающий файл сценария pc.js-->
 
     <title>@yield("title"):: Выбор</title><!--выводим основную часть названия каждой страницы. Дизайн для настольных компьютеров-->
@@ -52,14 +55,13 @@
         @include("vendors.navbar")
     </nav>
 
-    <section>
-        @yield("main")<!--выводим основное содержание-->
+    <section><!--выводим основное содержание-->
+        @yield("main")
     </section>
 </div>
     <footer>
-
+        @include('vendors.modal')
         <p>&copy коллектив разработчиков сайта, 2018&nbsp;г</p>
-
         <p>А ежели вам чего-то не видно или не понятно, так Вы просто напишите <a href="mailto:edik@yandex.ru">Эдику</a>.</p>
     </footer>
 </body>

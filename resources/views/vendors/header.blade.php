@@ -27,7 +27,7 @@
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />--}}
 {{--</head>--}}
 {{--<script src="../../js/headerPanel.js"></script>--}}
-    <script >
+    <script type="text/javascript" language="javascript">
     var header = document.createElement('div');
     header.setAttribute('id', 'header');
     header.style.border = '1px black solid';
@@ -40,7 +40,7 @@
     var h1Header = document.createElement('h1');
     h1Header.style.position = 'absolute';
     h1Header.setAttribute('class', 'text-center');
-    h1Header.style.margin = '110px 780px';
+    h1Header.style.margin = '110px 700px';
     h1Header.innerText = 'Сайт Эдика';
     header.appendChild(h1Header);
 
@@ -56,23 +56,27 @@
     slider.style.height = '250px';
     slider.style.margin = '20px 0';
     slider.style.backgroundImage = 'url(images/slide1.jpg)';
+    slider.style.backgroundSize = 'cover';
 
     document.getElementById('header').appendChild(slider);
     //h1 within slider
 
-    var timer = setInterval(function(){
-        function sliderFunc() {
-            var currentSlide = slider.getAttribute('slide');
-            //проверка
-            alert (currentSlide);
-            if (currentSlide === '5') {
-                currentSlide = 1;
-            }else {
-                currentSlide++;
-            }
-            slider.setAttribute('slide', currentSlide);
-
-            slider.style.backgroundImage = 'url(images/slide' + currentSlide + '.jpg)';
+    function sliderFunc() {
+        var currentSlide = slider.getAttribute('slide');
+        //проверка
+        //alert (currentSlide);
+        if (currentSlide === '5') {
+            currentSlide = 1;
+        }else {
+            currentSlide++;
         }
-    }, 3000);//здесб долдно быть написано timeout перед 3000, эьто указывает что shtorm распознает ее как фукцию, причем в отдельном файле так и есть. Такое впечатление, что не работает JS в принципе но этого не может быть
+        slider.setAttribute('slide', currentSlide);
+
+        slider.style.backgroundImage = 'url(images/slide' + currentSlide + '.jpg)';
+    }
+
+    var timer = setInterval(function(){
+        sliderFunc()
+    }, 3000);
+
 </script>

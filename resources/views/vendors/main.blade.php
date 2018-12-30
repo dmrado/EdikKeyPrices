@@ -1,5 +1,5 @@
-@extends(request()->route()->getController()->parentView)<!--первое слово - extends - это команда указания имени шаблона родителя-->
-@section("title", "Главная")<!--это помещается в название шаблона-родителя-->
+@extends(request()->route()->getController()->parentView)
+@section("title", "Главная")
 @section("main")<!--это помещается в основное содержимое шаблона-родителя"-->
 
 @include('vendors.face')

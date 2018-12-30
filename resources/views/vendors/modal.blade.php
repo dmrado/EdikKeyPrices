@@ -1,22 +1,29 @@
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">открыть модальное окно</button>
-<div class="modal-fade" id="myModal">
-    <div class="modal-dialog">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <!--Заголовок окна-->
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Заголовок окна</h4>
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <!--Тело окна-->
             <div class="modal-body">
-                <h3>Эдик, содержимое модального окна можешь писать сам</h3>
-                <p>для этого нужно пройти по <a href="#">ссылке</a>, написать в окно сообщение для посетителей твоего сайта и нажать кнопку сохранения</p>
+                ...
             </div>
-            <!--нижняя часть здесь живут кнопки-->
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Понятно</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
+{{--<script>--}}
+    {{--$(document).ready(function () {--}}
+        {{--$("#myModal").modal();--}}
+    {{--});//end ready--}}
+{{--</script>--}}
