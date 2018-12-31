@@ -88,19 +88,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 portfolio-item">
+            <div class="col-md-12 col-sm-8 portfolio-item">
                 <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
                     <div class="portfolio-hover">
                        <!-- <div class="portfolio-hover-content">-->
                             <i class="fas fa-plus fa-3x"></i>
-                        </div>
+                        <!--</div>-->
                     </div>
                     <!-- <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg"  alt="">-->
                 </a>
-                <div class="portfolio-caption">
+              <!--  <div class="portfolio-caption">-->
                     <tr>
-                        <td align="center" valign="middle"><a href="/acura"><img src="/sites/default/files/pictures/acura.jpg" alt="Acura" /></a></td>
-                        <td align="center" valign="middle"><a href="/alfa_romeo"><img src="/sites/default/files/pictures/alfa_romeo.jpg" alt="Alfa romeo" /></a></td>
+                        <td align="center" valign="middle"><a href="/acura"><img src="../../public/img/acura.jpg" alt="Acura" /></a></td>
+                        <td align="center" valign="middle"><a href="/alfa_romeo"><img src="../../public/img/alfa_romeo.jpg" alt="Alfa romeo" /></a></td>
                         <td align="center" valign="middle"><a href="/audi"><img src="/sites/default/files/pictures/audi.jpg" alt="Audi" /></a></td>
                         <td align="center" valign="middle"><a href="/bmw"><img src="/sites/default/files/pictures/bmw.jpg" alt="BMW" /></a></td>
                         <td align="center" valign="middle"><a href="/buick"><img src="/sites/default/files/pictures/buick.jpg" alt="Buick" /></a></td>
@@ -247,8 +247,9 @@
                     {{--<h4>Window</h4>--}}
                     {{--<p class="text-muted">Photography</p>--}}
                 {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
+            <!--</div>-->
+        </div>
+    </div>
     </div>
 </section>
 
@@ -421,7 +422,7 @@
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
                 <p class="large text-muted"><a href="javascript:
-                
+
                 var total = "
                     >Итого:</a></p>
             </div>
