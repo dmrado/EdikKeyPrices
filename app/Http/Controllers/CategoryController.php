@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(){
-        return view('vendors.main');
+        return view('keys');
     }
 
 
@@ -16,9 +16,9 @@ class CategoryController extends Controller
         return view('keys');
     }
 
-    public function serv(){
+    public function form(){
         $this->parentView = "layouts.agency";
-        return view('serv');
+        return view('form');
     }
 
 //   public function form()

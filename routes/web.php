@@ -17,8 +17,6 @@
 
 Route::get('/', 'CategoryController@index');
 Route::get('/keys', 'CategoryController@keys');
-Route::get('/serv', 'CategoryController@serv');
-
 Route::get('/form', 'CategoryController@form');
 
 //эти два нижних роута работают с примером AjaxController

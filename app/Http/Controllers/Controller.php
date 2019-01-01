@@ -32,7 +32,7 @@ class Controller extends BaseController
         if($this->isMobile){
             $this->parentView = "layouts.mobile";
         } else {
-            $this->parentView = "layouts.pc";//пути записаны относительно папки resources\views
+            $this->parentView = "layouts.agency";//пути записаны относительно папки resources\views
         }
     }
 }
