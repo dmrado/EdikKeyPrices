@@ -9,7 +9,7 @@
 
                     <div class="form-group">
                         <label for="марка" class="sr-only"></label><br/>
-                        <select id="first_level" name="first_level" multiple class="form-control">
+                        <select id="first_level" name="first_level" class="form-control">
 
                             {{--@foreach($carBrands as $row)--}}
                             {{--<option value="{{$row->carbrand_id}}">{{$row->carbrand_name}}</option>--}}
@@ -19,19 +19,19 @@
                     </div><!--end 1 div class="form-group"-->
                     <div class="form-group">
                         <label for="модель" class="sr-only"></label><br/>
-                        <select id="second_level" name="second_level[]" multiple class="form-control">
+                        <select id="second_level" name="second_level[]" class="form-control">
 
                         </select>
                     </div><!--end 2 div class="form-group"-->
                     <div class="form-group">
                         <label for="год выпуска" class="sr-only"></label><br/>
-                        <select id="third_level" name="third_level[]" multiple class="form-control">
+                        <select id="third_level" name="third_level[]" class="form-control">
 
                         </select>
                     </div><!--end 3 div class="form-group"-->
                     <div class="form-group">
                         <label for="год выпуска" class="sr-only"></label><br/>
-                        <select id="fourth_level" name="fourth_level[]" multiple class="form-control">
+                        <select id="fourth_level" name="fourth_level[]" class="form-control">
 
                         </select>
                     </div><!--end 4 div class="form-group"-->
