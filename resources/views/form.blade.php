@@ -6,35 +6,42 @@
     <div class="container">
         <form>
             <h2 align="center">Пожалуйста выберите свой автомобиль и тип нужного ключа</h2><br/>
-
-                    <div class="form-group">
+                <div class="form-group">
+                    <div class="row">
                         <label for="марка" class="sr-only"></label><br/>
-                        <select id="first_level" name="first_level" class="form-control">
+                            <select id="first_level" name="first_level" class="form-control">
 
-                            {{--@foreach($carBrands as $row)--}}
-                            {{--<option value="{{$row->carbrand_id}}">{{$row->carbrand_name}}</option>--}}
-                            {{--@endforeach--}}
+                                {{--@foreach($carBrands as $row)--}}
+                                {{--<option value="{{$row->carbrand_id}}">{{$row->carbrand_name}}</option>--}}
+                                {{--@endforeach--}}
 
-                        </select>
-                    </div><!--end 1 div class="form-group"-->
-                    <div class="form-group">
+                            </select>
+                    </div>
+                </div><!--end 1 div class="form-group"-->
+                <div class="form-group">
+                    <div class="row">
                         <label for="модель" class="sr-only"></label><br/>
-                        <select id="second_level" name="second_level[]" class="form-control">
+                            <select id="second_level" name="second_level[]" class="form-control">
 
-                        </select>
-                    </div><!--end 2 div class="form-group"-->
-                    <div class="form-group">
+                            </select>
+                    </div>
+                </div><!--end 2 div class="form-group"-->
+                <div class="form-group">
+                    <div class="row">
                         <label for="год выпуска" class="sr-only"></label><br/>
-                        <select id="third_level" name="third_level[]" class="form-control">
+                            <select id="third_level" name="third_level[]" class="form-control">
 
-                        </select>
-                    </div><!--end 3 div class="form-group"-->
-                    <div class="form-group">
+                            </select>
+                    </div>
+                </div><!--end 3 div class="form-group"-->
+                <div class="form-group">
+                    <div class="row">
                         <label for="год выпуска" class="sr-only"></label><br/>
-                        <select id="fourth_level" name="fourth_level[]" class="form-control">
+                            <select id="fourth_level" name="fourth_level[]" class="form-control">
 
-                        </select>
-                    </div><!--end 4 div class="form-group"-->
+                            </select>
+                    </div>
+                </div><!--end 4 div class="form-group"-->
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-4">
                 <button type="submit" class="btn btn-success" id="search">Найти</button>
