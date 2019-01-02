@@ -45,6 +45,7 @@
 
 <!-- Custom scripts for this template -->
 <script src="js/agency.min.js"></script>
+<script src="js/dynamic-table.js"></script>
 
 </body>
 

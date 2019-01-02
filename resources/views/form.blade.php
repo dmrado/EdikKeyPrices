@@ -66,11 +66,7 @@
                             <option>Mustard1</option>
                             <option>Ketchup1</option>
                             <option>Barbecue1</option><option>Mustard</option>
-                            <option>Ketchup2</option>
-                            <option>Barbecue2</option>
-                            <option>Mustard2</option>
-                            <option>Ketchup3</option>
-                            <option>Barbecue3</option>
+
 
                             <!--здеcь будем загружать наименование работ из БД и стоимость с подсчетом тотал-->
 
@@ -169,6 +165,7 @@
         });//end fourth_level.multiselect
     })//end ready
 </script>
+<div id="page-wrapper"></div>
 <script>
     var serviceSelect = document.getElementById('serviceSelect');
     serviceSelect.addEventListener('submit', function showTotal(evt) {
@@ -186,7 +183,7 @@
             if((evt.target.readyState===4)&&(evt.target.status===200)){
                 var r = evt.target.responseText;
                 //обработать пришедший результат
-                document.write(r);
+                createDynamicTable(tableName, columns, 'page-wrapper');
             }
         });//end listener for oAJAX
         oAJAX.send(s);
