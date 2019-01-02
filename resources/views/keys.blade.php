@@ -258,8 +258,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Наименование работ</h2>
-                <h3 class="section-subheading text-muted">Этапы полного комплекса работ необходимых для изготовления высококачественной работающей копии чипованного ключа. Вы можете выбрать как полный комплекс работ с самого первого этапа, так и начать от любого промежуточного этапа и дойти с нами до финального - получения вашего нового ключа.</h3>
+                <h2 class="section-heading text-uppercase">Работы</h2>
+                <h3 class="section-subheading text-muted">Этапы полного комплекса работ необходимых для изготовления высококачественной работающей копии вашего чипованного ключа. Вы можете выбрать как полный комплекс работ с самого первого этапа, так и начать от любого промежуточного этапа и дойти с нами до финального - получения вашего нового ключа.</h3>
             </div>
         </div>
         <div class="row">
@@ -339,8 +339,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Наш сервисный центр</h2>
-                <h3 class="section-subheading text-muted">Эдик и другие</h3>
+                <h2 class="section-heading text-uppercase">Сервисный центр</h2>
+                <h3 class="section-subheading text-muted">Эдик и какие-то странные телки</h3>
             </div>
         </div>
         <div class="row">
@@ -504,7 +504,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <span class="copyright">Copyright &copy; chippy 2018</span>
+                <span class="copyright">Copyright &copy; chippy.ru 2018</span>
             </div>
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">

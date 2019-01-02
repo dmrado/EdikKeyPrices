@@ -2,6 +2,7 @@
 <?php
 /** @var $carBrands [Cardrand] */
 ?>
+
 <section>
     <div class="container">
         <form>
@@ -49,9 +50,48 @@
             </div>
         </form>
     </div>
+<br/>
+<br/>
+<br/>
+    <div class="container">
+        <h2 align="center">Пожалуйста выберите услуги или пакет услуг</h2><br/>
+        <div class="form-group">
+            <div class="row">
+                <label for="Пакет услуг" class="sr-only"></label><br/>
+                <select id="serviceSelect" name="first_level" multiple class="form-control">
+                    <option>Mustard</option>
+                    <option>Ketchup</option>
+                    <option>Barbecue</option>
+                    <option>Mustard1</option>
+                    <option>Ketchup1</option>
+                    <option>Barbecue1</option><option>Mustard</option>
+                    <option>Ketchup2</option>
+                    <option>Barbecue2</option>
+                    <option>Mustard2</option>
+                    <option>Ketchup3</option>
+                    <option>Barbecue3</option>
+
+                    <!--здеcь будем загружать наименование работ из БД и стоимость с подсчетом тотал-->
+
+                </select>
+            </div>
+        </div><!--end 1 div class="form-group"-->
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <button type="submit" class="btn btn-success" id="search">Подсчитать</button>
+            </div>
+        </div>
+    </div>
 </section>
 <script>
-    $(function () {
+    $(document).ready(function () {
+        $('#serviceSelect').selectpicker();
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
         $('#first_level').multiselect({
             nonSelectedText:'марка',
             buttonWidth:'400px',
