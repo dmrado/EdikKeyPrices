@@ -100,10 +100,6 @@
               <!--  <div class="portfolio-caption">-->
                     <tr>
                         <td align="center" valign="middle"><a href="/acura"><img src="../../public/img/acura.jpg" alt="Acura" /></a></td>
-                        <td align="center" valign="middle"><a href="/alfa_romeo"><img src="../../public/img/alfa_romeo.jpg" alt="Alfa romeo" /></a></td>
-                        <td align="center" valign="middle"><a href="/audi"><img src="/sites/default/files/pictures/audi.jpg" alt="Audi" /></a></td>
-                        <td align="center" valign="middle"><a href="/bmw"><img src="/sites/default/files/pictures/bmw.jpg" alt="BMW" /></a></td>
-                        <td align="center" valign="middle"><a href="/buick"><img src="/sites/default/files/pictures/buick.jpg" alt="Buick" /></a></td>
                         <td align="center" valign="middle"><a href="/cadillac"><img src="/sites/default/files/pictures/cadillac.jpg" alt="Cadillac" /></a></td>
                         <td align="center" valign="middle"><a href="/chevrolet"><img src="/sites/default/files/pictures/chevrolet.jpg" alt="Chevrolet" /></a></td>
                     </tr>

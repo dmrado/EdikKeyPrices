@@ -5,7 +5,7 @@
 
 <section>
     <div class="container">
-        <form>
+        <form action="#" method="post" id="carSelect">
             <h2 align="center">Пожалуйста выберите свой автомобиль и тип нужного ключа</h2><br/>
                 <div class="form-group">
                     <div class="row">
@@ -54,34 +54,36 @@
 <br/>
 <br/>
     <div class="container">
-        <h2 align="center">Пожалуйста выберите услуги или пакет услуг</h2><br/>
-        <div class="form-group">
-            <div class="row">
-                <label for="Пакет услуг" class="sr-only"></label><br/>
-                <select id="serviceSelect" name="first_level" multiple class="form-control">
-                    <option>Mustard</option>
-                    <option>Ketchup</option>
-                    <option>Barbecue</option>
-                    <option>Mustard1</option>
-                    <option>Ketchup1</option>
-                    <option>Barbecue1</option><option>Mustard</option>
-                    <option>Ketchup2</option>
-                    <option>Barbecue2</option>
-                    <option>Mustard2</option>
-                    <option>Ketchup3</option>
-                    <option>Barbecue3</option>
+        <form action="#" method="post" id="serviceSelect" enctype="application/x-www-form-urlencoded">
+            <h2 align="center">Пожалуйста выберите услуги или пакет услуг</h2><br/>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="Пакет услуг" class="sr-only"></label><br/>
+                        <select id="serviceSelect" name="first_level" multiple class="form-control">
+                            <option>Mustard</option>
+                            <option>Ketchup</option>
+                            <option>Barbecue</option>
+                            <option>Mustard1</option>
+                            <option>Ketchup1</option>
+                            <option>Barbecue1</option><option>Mustard</option>
+                            <option>Ketchup2</option>
+                            <option>Barbecue2</option>
+                            <option>Mustard2</option>
+                            <option>Ketchup3</option>
+                            <option>Barbecue3</option>
 
-                    <!--здеcь будем загружать наименование работ из БД и стоимость с подсчетом тотал-->
+                            <!--здеcь будем загружать наименование работ из БД и стоимость с подсчетом тотал-->
 
-                </select>
-            </div>
-        </div><!--end 1 div class="form-group"-->
+                        </select>
+                    </div>
+                </div><!--end 1 div class="form-group"-->
 
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-4">
-                <button type="submit" class="btn btn-success" id="search">Подсчитать</button>
-            </div>
-        </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-4">
+                        <button type="submit" class="btn btn-success" id="search">Подсчитать</button>
+                    </div>
+                </div>
+        </form>
     </div>
 </section>
 <script>
@@ -166,4 +168,28 @@
             buttonWidth:'400px'
         });//end fourth_level.multiselect
     })//end ready
+</script>
+<script>
+    var serviceSelect = document.getElementById('serviceSelect');
+    serviceSelect.addEventListener('submit', function showTotal(evt) {
+        var oAJAX = new XMLHttpRequest();
+        var requestServ = evt.target;
+        var s = "";
+        var cEls = requestServ.elements;
+        for(i in cEls){
+            if(s!=="") s+="&";
+            s = cEls[i];
+        }
+        oAJAX.open(requestServ.action, requestServ.method, true);
+        oAJAX.setRequestHeader('Content-type', requestServ.enctype);
+        oAJAX.addEventListener('readystatechange', function (evt) {
+            if((evt.target.readyState===4)&&(evt.target.status===200)){
+                var r = evt.target.responseText;
+                //обработать пришедший результат
+                document.write(r);
+            }
+        });//end listener for oAJAX
+        oAJAX.send(s);
+        evt.preventDefault();
+    });
 </script>
