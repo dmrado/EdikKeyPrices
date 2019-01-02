@@ -15,6 +15,6 @@ class CarBrandController extends Controller
 {
     public function getCarBrand(){
             $carbrand_name = Carbrand::select("carbrand_name")->get();//берет отсюда
-            return view("vendors.form", ["carBrands" => $carbrand_name]);//запускает шаблонизатор и вставляет сюда массив $carbrand_name
+            return view("form", ["carBrands" => $carbrand_name]);//запускает шаблонизатор и вставляет сюда массив $carBrands
         }
 }
