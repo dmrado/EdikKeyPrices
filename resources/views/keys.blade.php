@@ -99,7 +99,7 @@
                 </a>
               <!--  <div class="portfolio-caption">-->
                     <tr>
-                        <td align="center" valign="middle"><a href="/acura"><img src="../../public/img/acura.jpg" alt="Acura" /></a></td>
+                        <td align="center" valign="middle"><a href="/acura"><img src="@php URL::to ('public/img/acura.jpg')@endphp;" alt="Acura" /></a></td>
                         <td align="center" valign="middle"><a href="/cadillac"><img src="/sites/default/files/pictures/cadillac.jpg" alt="Cadillac" /></a></td>
                         <td align="center" valign="middle"><a href="/chevrolet"><img src="/sites/default/files/pictures/chevrolet.jpg" alt="Chevrolet" /></a></td>
                     </tr>
@@ -416,7 +416,7 @@
         </div>
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <p class="large text-muted"><a href="http://localhost:8888/EdikKeyPrices/public/form">Узнать стоимость работ</a></p>
+                <p class="large text-muted"><a href="@php URL::to('/form')@endphp;">Узнать стоимость работ</a></p>
             </div>
         </div>
     </div>

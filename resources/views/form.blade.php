@@ -1,4 +1,4 @@
-@extends(request()->route()->getController()->parentView)
+@extends("layouts.agency")
 <?php
 /** @var $carBrands [Cardrand] */
 ?>
@@ -182,7 +182,7 @@
         oAJAX.addEventListener('readystatechange', function (evt) {
             if((evt.target.readyState===4)&&(evt.target.status===200)){
                 var r = evt.target.responseText;
-                //обработать пришедший результат
+                //обработать возвращенный массив
                 createDynamicTable(tableName, columns, 'page-wrapper');
             }
         });//end listener for oAJAX
