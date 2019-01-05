@@ -23,6 +23,23 @@
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
+    <script src="js/dynamic-table.js"></script>
+
+    <!-- Bootstrap select -->
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <script src="js/bootstrap-select.min.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -30,22 +47,6 @@
 <section><!--выводим основное содержание-->
     @yield("main")
 </section>
-
-
-<!-- Bootstrap core JavaScript -->
-
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Contact form JavaScript -->
-<script src="js/jqBootstrapValidation.js"></script>
-<script src="js/contact_me.js"></script>
-
-<!-- Custom scripts for this template -->
-<script src="js/agency.min.js"></script>
-<script src="js/dynamic-table.js"></script>
 
 </body>
 
