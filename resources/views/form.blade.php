@@ -2,7 +2,7 @@
 <?php
 /** @var $carBrands [Cardrand] */
 ?>
-
+@section('main')
 <section>
     <div class="container">
         <form action="#" method="post" id="carSelect">
@@ -11,11 +11,9 @@
                     <div class="row">
                         <label for="марка" class="sr-only"></label><br/>
                             <select id="first_level" name="first_level" class="form-control">
-
-                                {{--@foreach($carBrands as $row)--}}
-                                {{--<option value="{{$row->carbrand_id}}">{{$row->carbrand_name}}</option>--}}
-                                {{--@endforeach--}}
-
+                                @foreach($carBrands as $carBrand)
+                                    <option value="{{$carBrand->carbrand_id}}">{{$carBrand->carbrand_name}}</option>
+                                @endforeach
                             </select>
                     </div>
                 </div><!--end 1 div class="form-group"-->
@@ -190,3 +188,4 @@
         evt.preventDefault();
     });
 </script>
+@endsection
