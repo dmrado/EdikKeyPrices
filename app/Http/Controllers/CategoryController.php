@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Carbrand;
-
 class CategoryController extends Controller
 {
     public function index(){
@@ -14,9 +12,7 @@ class CategoryController extends Controller
     }
     public function form(){
         $this->parentView = "layouts.agency";
-        $carBrands = Carbrand::all();
-
-        return view('form', compact('carBrands'));
+        return view('form');
     }
 
 //    public function keys(){
