@@ -10,10 +10,9 @@ use App\Carmod;
 
 class CarModController extends Controller
 {
-    public function getCarMod(Carbrand $carbrand){
-        $carmod_name = Carmod::select("carmod_name")
-            ->where("carbrand", $carbrand->carbrand_id)
+    public function getCarMod($carbrand_id){
+        $carmods = Carmod::where ("carbrand_id", "=", $carbrand_id)
             ->orderBy("carmod_name")->get();
-        return view("vendors.main", ["carmod_name" => $carmod_name]);
+        return response()->json(["check" => true]);
     }
 }

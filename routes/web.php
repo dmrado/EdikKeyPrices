@@ -34,6 +34,6 @@ Route::get('/form', 'CategoryController@form');
 Route::post('/getCarBrand', 'CarBrandController@getCarBrand');//->name('getCarBrand');//именнованный маршрут работает с методом route формы (Пример: form action="{{route('getCarBrand')}} - стр. 460
 Route::get('/getCarBrand/{selected}', 'CarBrandController@getCarBrand');//->name('getCarBrand');//именнованный маршрут работает с методом route формы (Пример: form action="{{route('getCarBrand')}} - стр. 460
 
-Route::post('/getCarMod', 'CarModController@getCarMod');
+Route::get('/getCarMod/{selected}', 'CarModController@getCarMod');
 Route::post('/getCarYear', 'CarYearController@getCarYear');
 Route::post('/getKey', 'CarYearController@getKey');

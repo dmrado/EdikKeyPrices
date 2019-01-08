@@ -98,14 +98,15 @@
                 $('#third_level').multiselect('rebuild');
                 $('#fourth_level').html('');
                 $('#fourth_level').multiselect('rebuild');
-                var selected = this.val();
-                if(selected.lenght > 0){
+                var selected = this.$select.val();
+                if(selected){
                     $.ajax({
-                        url:"/getCarBrand",
-                        method:"POST",
-                        data:{selected:selected},
+                        url:"/getCarMod/"+ selected,
+                        method:"GET",
+                        //data:{selected:selected},
                         success:function(data){
-                            $('#second_level').html(data);
+                            console.log(data);
+                          //  $('#second_level').html(data);
                             $('#second_level').multiselect('rebuild');
                         }//end success
                     });//end ajax
