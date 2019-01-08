@@ -12,7 +12,7 @@ class CategoryController extends Controller
         $this->parentView = "layouts.agency";
         return view('keys');
     }
-    public function form(){
+    public function form(){//возвращает HTML строку
         $this->parentView = "layouts.agency";
         $carBrands = Carbrand::all();
 

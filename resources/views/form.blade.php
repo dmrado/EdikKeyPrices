@@ -98,7 +98,7 @@
                 $('#third_level').multiselect('rebuild');
                 $('#fourth_level').html('');
                 $('#fourth_level').multiselect('rebuild');
-                var selected = this.$select.val();
+                var selected = this.val();
                 if(selected.lenght > 0){
                     $.ajax({
                         url:"/getCarBrand",
