@@ -101,7 +101,7 @@
                 var selected = this.$select.val();
                 if(selected){
                     $.ajax({
-                        url:"/getCarMod/"+ selected,
+                        url:"/getcarmod/"+ selected,
                         method:"GET",
                         //data:{selected:selected},
                         success:function(data){
@@ -126,7 +126,7 @@
                 if(selected.lenght > 0){
                     $.ajax({
                         url:"/getCarMod",
-                        method:"POST",
+                        method:"GET",
                         data:{selected:selected},
                         success:function(data){
                             $('#third_level').html(data);
@@ -147,7 +147,7 @@
                 if(selected.lenght > 0){
                     $.ajax({
                         url:"getCarYear",
-                        method:"POST",
+                        method:"GET",
                         data:{selected:selected},
                         success:function () {
                             $('#fourth_level').html(data);
