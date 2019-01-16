@@ -133,28 +133,28 @@
 
 
 <div id="page-wrapper"></div>
-<script>
-    var serviceSelect = document.getElementById('serviceSelect');
-    serviceSelect.addEventListener('submit', function showTotal(evt) {
-        var oAJAX = new XMLHttpRequest();
-        var requestServ = evt.target;
-        var s = "";
-        var cEls = requestServ.elements;
-        for(i in cEls){
-            if(s!=="") s+="&";
-            s = cEls[i];
-        }
-        oAJAX.open(requestServ.action, requestServ.method, true);
-        oAJAX.setRequestHeader('Content-type', requestServ.enctype);
-        oAJAX.addEventListener('readystatechange', function (evt) {
-            if((evt.target.readyState===4)&&(evt.target.status===200)){
-                var r = evt.target.responseText;
-                //обработать возвращенный массив
-                createDynamicTable(tableName, columns, 'page-wrapper');
-            }
-        });//end listener for oAJAX
-        oAJAX.send(s);
-        evt.preventDefault();
-    });
-</script>
+{{--<script>--}}
+    {{--var serviceSelect = document.getElementById('serviceSelect');--}}
+    {{--serviceSelect.addEventListener('submit', function showTotal(evt) {--}}
+        {{--var oAJAX = new XMLHttpRequest();--}}
+        {{--var requestServ = evt.target;--}}
+        {{--var s = "";--}}
+        {{--var cEls = requestServ.elements;--}}
+        {{--for(i in cEls){--}}
+            {{--if(s!=="") s+="&";--}}
+            {{--s = cEls[i];--}}
+        {{--}--}}
+        {{--oAJAX.open(requestServ.action, requestServ.method, true);--}}
+        {{--oAJAX.setRequestHeader('Content-type', requestServ.enctype);--}}
+        {{--oAJAX.addEventListener('readystatechange', function (evt) {--}}
+            {{--if((evt.target.readyState===4)&&(evt.target.status===200)){--}}
+                {{--var r = evt.target.responseText;--}}
+                {{--//обработать возвращенный массив--}}
+                {{--createDynamicTable(tableName, columns, 'page-wrapper');--}}
+            {{--}--}}
+        {{--});//end listener for oAJAX--}}
+        {{--oAJAX.send(s);--}}
+        {{--evt.preventDefault();--}}
+    {{--});--}}
+{{--</script>--}}
 @endsection
