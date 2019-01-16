@@ -24,28 +24,28 @@
 
                             </select>
                     </div>
-                </div><!--end 2 div class="form-group"-->
-                <div class="form-group">
-                    <div class="row">
-                        <label for="год выпуска" class="sr-only"></label><br/>
-                            <select id="third_level" name="third_level[]" class="form-control">
+                {{--</div><!--end 2 div class="form-group"-->--}}
+                {{--<div class="form-group">--}}
+                    {{--<div class="row">--}}
+                        {{--<label for="год выпуска" class="sr-only"></label><br/>--}}
+                            {{--<select id="third_level" name="third_level[]" class="form-control">--}}
 
-                            </select>
-                    </div>
-                </div><!--end 3 div class="form-group"-->
-                <div class="form-group">
-                    <div class="row">
-                        <label for="год выпуска" class="sr-only"></label><br/>
-                            <select id="fourth_level" name="fourth_level[]" class="form-control">
+                            {{--</select>--}}
+                    {{--</div>--}}
+                {{--</div><!--end 3 div class="form-group"-->--}}
+                {{--<div class="form-group">--}}
+                    {{--<div class="row">--}}
+                        {{--<label for="год выпуска" class="sr-only"></label><br/>--}}
+                            {{--<select id="fourth_level" name="fourth_level[]" class="form-control">--}}
 
-                            </select>
-                    </div>
-                </div><!--end 4 div class="form-group"-->
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-4">
-                <button type="submit" class="btn btn-success" id="search">Найти</button>
-                </div>
-            </div>
+                            {{--</select>--}}
+                    {{--</div>--}}
+                {{--</div><!--end 4 div class="form-group"-->--}}
+            {{--<div class="form-group">--}}
+                {{--<div class="col-sm-offset-2 col-sm-4">--}}
+                {{--<button type="submit" class="btn btn-success" id="search">Найти</button>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </form>
     </div>
 <br/>
@@ -88,82 +88,50 @@
 
 <script>
     $(document).ready(function () {
-        $('#first_level').multiselect({
-            nonSelectedText:'марка',
-            buttonWidth:'400px',
-            onChange:function(option, checked){
-                $('#second_level').html('');
-                $('#second_level').multiselect('rebuild');
-                $('#third_level').html('');
-                $('#third_level').multiselect('rebuild');
-                $('#fourth_level').html('');
-                $('#fourth_level').multiselect('rebuild');
-                var selected = this.$select.val();
-                if(selected){
-                    $.ajax({
-                        url:"/getcarmod/"+ selected,
-                        method:"GET",
-                        //data:{selected:selected},
-                        success:function(data){
-                            console.log(data);
-                          //  $('#second_level').html(data);
-                            $('#second_level').multiselect('rebuild');
-                        }//end success
-                    });//end ajax
-                }//end if
-            }// end onChange first_level
-        });//end first_level.multiselect
+        $('#first_level').change(function() {
+            var selected = $(this).find('option:selected').val();
+            alert(selected);
+            $('#second_level').html('');//очистка списка перед тем как выбрать
+            $.ajax({
+                url:"/EdikKeyPrices/public/getCarMod/"+ selected,
+                method:"GET",
+                dataType: "json",
+                encode: "true",
+                //data:{selected:selected},
+                success:function(data){
+                    console.log(data);
+                    for (var i = 0; i < data.length; i ++){
+                        $('#second_level')
+                            .append('<option value="'+ data[i].carmod_id +'">' + data[i].carmod_name + '</option>')
+                    }
+                }//end success
+            });//end ajax
+        });//end first_level
 
-        $('#second_level').multiselect({
-            nonSelectedText: 'модель',
-            buttonWidth: '400px',
-            onChange:function(option, checked){
-                $('#third_level').html('');
-                $('#third_level').multiselect('rebuild');
-                $('#fourth_level').html('');
-                $('#fourth_level').multiselect('rebuild');
-                var selected = this.$select.val();
-                if(selected.lenght > 0){
-                    $.ajax({
-                        url:"/getCarMod",
-                        method:"GET",
-                        data:{selected:selected},
-                        success:function(data){
-                            $('#third_level').html(data);
-                            $('#third_level').multiselect('rebuild');
-                        }//end success
-                    });//end ajax
-                }//end if
-            }// end onChange second_level
-        });//end #second_level.multiselect
+        $('#second_level').change(function() {
+            var selected = $(this).find('option:selected').val();
+            alert(selected);
+            // $.ajax({
+            //     url:"/EdikKeyPrices/public/getCarMod/"+ selected,
+            //     method:"GET",
+            //     dataType: "json",
+            //     encode: "true",
+            //     //data:{selected:selected},
+            //     success:function(data){
+            //         console.log(data);
+            //         for (var i = 0; i < data.length; i ++){
+            //             $('#second_level')
+            //                 .append('<option value="'+ data[i].carmod_id +'">' + data[i].car_acces + '</option>')
+            //         }
+            //     }//end success
+            // });//end ajax
+        });//end first_level
 
-        $('#third_level').multiselect({
-            nonSelectedText:'год выпуска',
-            buttonWidth:'400px',
-            onChange:function(option, checked) {
-                $('#fourth_level').html(data);
-                $('#fourth_level').multiselect('rebuild');
-                var selected = this.$select.val();
-                if(selected.lenght > 0){
-                    $.ajax({
-                        url:"getCarYear",
-                        method:"GET",
-                        data:{selected:selected},
-                        success:function () {
-                            $('#fourth_level').html(data);
-                            $('#fourth_level').multiselect('rebuild');
-                        }//end success
-                    });//end ajax
-                }//end if
-            }//end onChange
-        });//end third_level.multiselect
 
-        $('#fourth_level').multiselect({
-            nonSelectedText:'тип ключа',
-            buttonWidth:'400px'
-        });//end fourth_level.multiselect
     })//end ready
 </script>
+
+
 <div id="page-wrapper"></div>
 <script>
     var serviceSelect = document.getElementById('serviceSelect');
