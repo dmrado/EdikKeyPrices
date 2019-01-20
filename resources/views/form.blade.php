@@ -1,6 +1,7 @@
 @extends("layouts.agency")
 <?php
 /** @var $carBrands [Cardrand] */
+/** @var $serv [Sevise] */
 ?>
 @section('main')
 <section>
@@ -24,15 +25,15 @@
 
                             </select>
                     </div>
-                {{--</div><!--end 2 div class="form-group"-->--}}
-                {{--<div class="form-group">--}}
-                    {{--<div class="row">--}}
-                        {{--<label for="год выпуска" class="sr-only"></label><br/>--}}
-                            {{--<select id="third_level" name="third_level[]" class="form-control">--}}
+                </div><!--end 2 div class="form-group"-->
+                <div class="form-group">
+                    <div class="row">
+                        <label for="год выпуска" class="sr-only"></label><br/>
+                            <select id="third_level" name="third_level[]" class="form-control">
 
-                            {{--</select>--}}
-                    {{--</div>--}}
-                {{--</div><!--end 3 div class="form-group"-->--}}
+                            </select>
+                    </div>
+                </div><!--end 3 div class="form-group"-->
                 {{--<div class="form-group">--}}
                     {{--<div class="row">--}}
                         {{--<label for="год выпуска" class="sr-only"></label><br/>--}}
@@ -58,15 +59,10 @@
                     <div class="row">
                         <label for="Пакет услуг" class="sr-only"></label><br/>
                         <select id="serviceSelect" name="first_level" multiple class="form-control">
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Barbecue</option>
-                            <option>Mustard1</option>
-                            <option>Ketchup1</option>
-                            <option>Barbecue1</option><option>Mustard</option>
-
-
                             <!--здеcь будем загружать наименование работ из БД и стоимость с подсчетом тотал-->
+                            @foreach($serv as $services)
+                                <option value="{{$services->cost}}">{{$services->service}}</option>
+                            @endforeach
 
                         </select>
                     </div>
@@ -90,14 +86,13 @@
     $(document).ready(function () {
         $('#first_level').change(function() {
             var selected = $(this).find('option:selected').val();
-            alert(selected);
+            //alert(selected);
             $('#second_level').html('');//очистка списка перед тем как выбрать
             $.ajax({
                 url:"/EdikKeyPrices/public/getCarMod/"+ selected,
                 method:"GET",
-                dataType: "json",
-                encode: "true",
-                //data:{selected:selected},
+                // dataType: "json",
+                // encode: "true",
                 success:function(data){
                     console.log(data);
                     for (var i = 0; i < data.length; i ++){
@@ -107,30 +102,30 @@
                 }//end success
             });//end ajax
         });//end first_level
-
+//мы carmod_id потом передадим в базу для получения ключа вместе с годом выпуска
         $('#second_level').change(function() {
             var selected = $(this).find('option:selected').val();
-            alert(selected);
-            // $.ajax({
-            //     url:"/EdikKeyPrices/public/getCarMod/"+ selected,
-            //     method:"GET",
-            //     dataType: "json",
-            //     encode: "true",
-            //     //data:{selected:selected},
-            //     success:function(data){
-            //         console.log(data);
-            //         for (var i = 0; i < data.length; i ++){
-            //             $('#second_level')
-            //                 .append('<option value="'+ data[i].carmod_id +'">' + data[i].car_acces + '</option>')
-            //         }
-            //     }//end success
-            // });//end ajax
+            $('#third_level').html('');//очистка списка перед тем как выбрать
+           // alert(selected);
+            $.ajax({
+                url:"/EdikKeyPrices/public/getCarYear/"+ selected,
+                method:"GET",
+                // dataType: "json",
+                // encode: "true",
+                data:{selected:selected},
+                success:function(data){
+                    console.log(data);
+                    for (var i = 0; i < data.length; i ++){
+                        $('#third_level')
+                            .append('<option value="'+ data[i].caryear_id +'">' + data[i].caryear + '</option>')
+                    }
+                }//end success
+            });//end ajax
         });//end first_level
 
 
     })//end ready
 </script>
-
 
 <div id="page-wrapper"></div>
 {{--<script>--}}
