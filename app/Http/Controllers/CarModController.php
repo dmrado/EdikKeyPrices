@@ -12,7 +12,8 @@ class CarModController extends Controller
 {
     public function getCarMod($carbrand_id){
         $carmods = Carmod::where ("carbrand_id", "=", $carbrand_id)
-            ->orderBy("carmod_name")->get();
+            ->orderBy("carmod_name")
+            ->get();
         return response()->json($carmods);
     }
 }

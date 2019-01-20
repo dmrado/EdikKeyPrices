@@ -2,6 +2,7 @@
 <?php
 /** @var $carBrands [Cardrand] */
 /** @var $serv [Sevise] */
+/** @var $caryear [Caryear] */
 ?>
 @section('main')
 <section>
@@ -83,6 +84,14 @@
 </script>
 
 <script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+
+<script>$('#example').tooltip(options)</script>
+
+<script>
     $(document).ready(function () {
         $('#first_level').change(function() {
             var selected = $(this).find('option:selected').val();
@@ -102,7 +111,7 @@
                 }//end success
             });//end ajax
         });//end first_level
-//мы carmod_id потом передадим в базу для получения ключа вместе с годом выпуска
+//мы carmod_id потом передадим в базу для получения ключа вместе с годом выпуска и здесь типы данных года выпуска правильно сопоставить                        !!!!!!!!!!!!!!!!
         $('#second_level').change(function() {
             var selected = $(this).find('option:selected').val();
             $('#third_level').html('');//очистка списка перед тем как выбрать
@@ -122,8 +131,6 @@
                 }//end success
             });//end ajax
         });//end first_level
-
-
     })//end ready
 </script>
 
