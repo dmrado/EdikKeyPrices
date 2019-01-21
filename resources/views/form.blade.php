@@ -6,8 +6,8 @@
 ?>
 @section('main')
 <section>
-    <div class="container">
-        <form action="#" method="post" id="carSelect">
+    <div class="container"><!--нужен ли здесь параметр и какой-->
+        <form action="{{ url('/EdikKeyPrices/public/getKey/ + selected')}}" method="post" id="carSelect">
             <h2 align="center">Пожалуйста выберите свой автомобиль и тип нужного ключа</h2><br/>
                 <div class="form-group">
                     <div class="row">
@@ -48,7 +48,16 @@
                 {{--<button type="submit" class="btn btn-success" id="search">Найти</button>--}}
                 {{--</div>--}}
             {{--</div>--}}
+            <input type="submit" id="getKeyPicts" value="Получить ключи">
+            {{--три foreign key: carbrand_id  carmod_id  caryear_id отправляются в таблицу keys за urlами картинок ключей--}}
         </form>
+        <div id="imgDiv" onchange="<script> function imgDiv(url)</script>">Вывод изображений ключей</div>;
+            @foreach($keyDat as $keyImages)
+                                        $keyImages->keyName;
+                                        $keyImages->keySubscr;
+                                        $keyImages->keyPict;
+            @endforeach
+        <!--далее расписать что в popover что в div картинкой-->
     </div>
 <br/>
 <br/>
@@ -121,7 +130,7 @@
                 method:"GET",
                 // dataType: "json",
                 // encode: "true",
-                data:{selected:selected},
+               // data:{selected:selected},
                 success:function(data){
                     console.log(data);
                     for (var i = 0; i < data.length; i ++){
@@ -131,8 +140,46 @@
                 }//end success
             });//end ajax
         });//end first_level
-    })//end ready
+    })//end ready    четвертый уровень делать нельзя, так как год выпуска повторяется для разных значений carBrand и carMod, поэтом форма id="carSelect" отправляет массив значений полей ввода формы с id="carSelect"
 </script>
+
+<script>
+    var carSelect = document.getElementById('carSelect');
+    carSelect.addEventListener('submit', function(evt){
+        var oAJAX = new XMLHttpRequest();
+        var oForm = evt.target;
+        var s = "";
+        var cEls = oForm.elements;
+        for(i in cEls){
+            if(s !== "") s+="&";
+            s += cEls[i].selected;//я уже запутался к этому моменту
+        }
+        oAJAX.open(carSelect.action, carSelect.method, true);
+       // oAJAX.setRequestHeader('Content-type', carSelect.enctype);
+        oAJAX.addEventListener('readystatechange', function (evt) {
+            if((evt.target.readyState===4)&&(evt.target.status===200)){
+                var r = evt.target.responseText;
+                //должен вернуться массив urlов из таблицы keys, его надо обработать, в таблице keys еще нет поля для них надо добавить его миграцией или прям так вручную
+                function imgDiv(url) {
+                    var el = document.getElementById('imgDiv');
+                    var img = new Image();
+                    img.onload = function (){
+                        el.style.width = img.width+'px';
+                        el.style.height = (img.height + 20)+'px';
+                        el.innerHTML = '<img src='+url+' style="margin:0" width="'+img.width+'" height="'+img.height+'"  <br/> ('+img.width+'x'+img.height+')';
+                    }
+                    el.innerHTML = 'Загружаются варианты ключей для Вас...';
+                    img.src=url;
+                }
+
+            }
+        });//end listener for oAJAX
+        oAJAX.send(s);
+        evt.preventDefault();
+    });
+</script>
+
+
 
 <div id="page-wrapper"></div>
 {{--<script>--}}
