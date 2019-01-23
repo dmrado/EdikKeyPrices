@@ -10,9 +10,8 @@ use App\Caryear;
 
 class CarYearController extends Controller
 {
-    public function getCarYear(Carmod $carmod){
-        $carYears = Caryear::select("caryear")
-            ->where("carmod", $carmod->carmod_id)
+    public function getCarYear($carmod){
+        $carYears = Caryear::where("carmod_id", $carmod)
             ->orderBy("caryear")
             ->get();
         return response()->json($carYears);
