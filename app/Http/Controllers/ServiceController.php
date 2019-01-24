@@ -13,4 +13,10 @@ class ServiceController extends Controller
             ->get();
         return response()->json($service_name);
     }
+
+    public function getSharp($keySharp){
+        $costSharp = Sevise::select("cost", $keySharp)
+            ->get();
+        return response()->json( $costSharp);
+    }
 }

@@ -17,6 +17,5 @@ class KeyController extends Controller
     public function getKey($carKey){
         $imgKey = Key::where("caryear_id", $carKey)->get();
         return response()->json( $imgKey);
-        //return view("vendors.main", ["keyDat" => $imgKey]);
     }
 }

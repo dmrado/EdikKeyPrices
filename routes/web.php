@@ -38,4 +38,7 @@ Route::get('/getCarBrand/{selected}', 'CarBrandController@getCarBrand');//->name
 Route::get('/getCarMod/{selected}', 'CarModController@getCarMod');
 Route::get('/getCarYear/{selected}', 'CarYearController@getCarYear');
 Route::get('/getKey/{carYearId}', 'KeyController@getKey');
+
+Route::get('/getSharp/{keySharp}', 'ServiceController@getSharp');//хочу что бы нарезка лезвия менялась без перезагрузки страницы
+
 Route::get('/getService', 'ServiceController@getService');

@@ -51,13 +51,8 @@
             <input type="submit" id="getKeyImgs" value="Получить ключи">
             {{--три foreign key: carbrand_id  carmod_id  caryear_id отправляются в таблицу keys за urlами картинок ключей--}}
         </form>
-        <div id="imgDiv">Вывод изображений ключей</div>
-            {{--@foreach($keyDat as $keyImages)--}}
-                                        {{--$keyImages->keyName;--}}
-                                        {{--$keyImages->keySubscr;--}}
-                                        {{--$keyImages->keyPict;--}}
-            {{--@endforeach--}}
-        <!--далее расписать что в popover что в div картинкой-->
+        <div id="imgDiv"></div>
+
     </div>
 <br/>
 <br/>
@@ -69,25 +64,25 @@
                     <div class="row">
                         <label for="Пакет услуг" class="sr-only"></label><br/>
                             <div id="design">
-                                <table>
+                                <table class="tab table">
                                     <tr>
                                         <th>Наименование работ и материалов</th>
                                         <th>Стоимость</th>
                                     </tr>
                                     <tr>
                                         <td>Стоимость заготовки</td>
-                                        <td><span>0</span></td>
+                                        <td align="center"><span>0</span></td>
                                     </tr>
-                                    <tr>
+                                    <tr id="costKey">
                                         <td>Программирование</td>
-                                        <td><span>0</span></td>
+                                        <td align="center"><span>2000</span></td>
                                     </tr>
                                     <tr>
-                                        <td>Нарезка лезвия <br>
+                                        <td id="sharpVars">Нарезка лезвия <br>
                                             <label><input type="radio" name="bladeType" value="england" checked="checked" />Английская</label><br>
                                             <label><input type="radio" name="bladeType" value="vertical"/>Вертикальная</label><br>
                                         </td>
-                                        <td><span>0</span></td>
+                                        <td align="center"><span>0</span></td>
                                     </tr>
                                 </table>
                             <!--здеcь будем загружать наименование работ из БД и стоимость с подсчетом тотал-->
@@ -196,13 +191,13 @@
     });//end ready
 </script>
 
-{{--считаем стоимость работ--}}
+{{--считаем стоимость работ не доделал--}}
 <script>
     $(function () {
         $('#serviceSelect').submit(function (evt) {
             var formServ = evt.target;
             var elems = formServ.elements;
-            alert(elems);
+           // alert(elems);
             for (var i = 0; i < elems.length; i++){
                 var draft = elems[i][0];//стоимость заготовки должна быть динамически
                 var program = elems[i][1];//ст-ть программирования фиксированная
@@ -210,11 +205,31 @@
                 alert(sharp);
             }
             var total = draft + program + sharp;
-            alert(total);
+            //alert(total);
             $('#design').append(total);
         });//end onsubmit
     });//end ready
 
+</script>
+
+{{--получаем стоимость нарезки "английская" или "вертикальная" строка в таблице с id="sharpVars"--}}
+<script>
+    $(function () {
+        $('#sharpVars').change(function() {
+            var keySharp = $(this).find().val();
+            alert(keySharp);
+            $.ajax({
+                url: "/EdikKeyPrices/public/getSharp/" + keySharp,
+                method: "GET",
+                dataType: "json",
+                // encode: "true",
+                success: function (data) {
+                    alert('data');
+                    $('.tab table').find(child.span[2]).append(data);
+                }
+            });//end ajax
+        });//end change
+    });//end ready
 </script>
 
 
