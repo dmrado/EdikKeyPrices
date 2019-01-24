@@ -18,7 +18,7 @@
 Route::get('/', 'CategoryController@index');
 Route::get('/keys', 'CategoryController@keys');
 Route::get('/form', 'CategoryController@form');
-//Route::get('/', 'ServiceController@getService');
+
 
 //эти два нижних роута работают с примером AjaxController
 //Route::get('ajax', function (){
@@ -38,3 +38,4 @@ Route::get('/getCarBrand/{selected}', 'CarBrandController@getCarBrand');//->name
 Route::get('/getCarMod/{selected}', 'CarModController@getCarMod');
 Route::get('/getCarYear/{selected}', 'CarYearController@getCarYear');
 Route::get('/getKey/{carYearId}', 'KeyController@getKey');
+Route::get('/getService', 'ServiceController@getService');

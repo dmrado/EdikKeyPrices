@@ -63,24 +63,44 @@
 <br/>
 <br/>
     <div class="container">
-        <form action="#" method="post" id="serviceSelect" enctype="application/x-www-form-urlencoded">
-            <h2 align="center">Пожалуйста выберите услуги или пакет услуг</h2><br/>
+        <form action="#" method="get" id="serviceSelect" enctype="application/x-www-form-urlencoded">
+            <h2 align="center">Пожалуйста выберите услуги:</h2><br/>
                 <div class="form-group">
                     <div class="row">
                         <label for="Пакет услуг" class="sr-only"></label><br/>
-                        <select id="serviceSelect" name="first_level" multiple class="form-control">
+                            <div id="design">
+                                <table>
+                                    <tr>
+                                        <th>Наименование работ и материалов</th>
+                                        <th>Стоимость</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Стоимость заготовки</td>
+                                        <td><span>0</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Программирование</td>
+                                        <td><span>0</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Нарезка лезвия <br>
+                                            <label><input type="radio" name="bladeType" value="england" checked="checked" />Английская</label><br>
+                                            <label><input type="radio" name="bladeType" value="vertical"/>Вертикальная</label><br>
+                                        </td>
+                                        <td><span>0</span></td>
+                                    </tr>
+                                </table>
                             <!--здеcь будем загружать наименование работ из БД и стоимость с подсчетом тотал-->
                             {{--@foreach($serv as $services)--}}
                                 {{--<option value="{{$services->cost}}">{{$services->service}}</option>--}}
                             {{--@endforeach--}}
-
-                        </select>
+                            </div>
                     </div>
                 </div><!--end 1 div class="form-group"-->
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-4">
-                        <button type="submit" class="btn btn-success" id="search">Подсчитать</button>
+                        {{--<button type="submit" class="btn btn-success" id="search">Подсчитать</button>--}}
                     </div>
                 </div>
         </form>
@@ -100,13 +120,14 @@
 
 <script>$('#example').tooltip(options)</script>
 
+{{--multiselect--}}
 <script>
     $(document).ready(function () {
         $('#first_level').change(function() {
             var selected = $(this).find('option:selected').val();
             //alert(selected);
             $('#second_level').html('');//очистка списка перед тем как выбрать
-            $('#third_level').html('');//очистка списка перед тем как выбрать
+            $('#third_level').html('');
             $.ajax({
                 url:"/EdikKeyPrices/public/getCarMod/"+ selected,
                 method:"GET",
@@ -122,7 +143,7 @@
                 }//end success
             });//end ajax
         });//end first_level
-//мы carmod_id потом передадим в базу для получения ключа вместе с годом выпуска и здесь типы данных года выпуска правильно сопоставить                        !!!!!!!!!!!!!!!!
+
         $('#second_level').change(function() {
             var selected = $(this).find('option:selected').val();
             $('#third_level').html('');//очистка списка перед тем как выбрать
@@ -145,6 +166,7 @@
     })//end ready
 </script>
 
+{{--вынимаем из базы картинки ключей по url--}}
 <script>
     $(function () {
         $('#getKeyImgs').click(function (e) {
@@ -172,6 +194,27 @@
 
         });//end click
     });//end ready
+</script>
+
+{{--считаем стоимость работ--}}
+<script>
+    $(function () {
+        $('#serviceSelect').submit(function (evt) {
+            var formServ = evt.target;
+            var elems = formServ.elements;
+            alert(elems);
+            for (var i = 0; i < elems.length; i++){
+                var draft = elems[i][0];//стоимость заготовки должна быть динамически
+                var program = elems[i][1];//ст-ть программирования фиксированная
+                var sharp = elems[i][2];//ст-ть нарезки английская или вертикальная динамически но у них, к счастью, фиксированная стоимость у каждой
+                alert(sharp);
+            }
+            var total = draft + program + sharp;
+            alert(total);
+            $('#design').append(total);
+        });//end onsubmit
+    });//end ready
+
 </script>
 
 

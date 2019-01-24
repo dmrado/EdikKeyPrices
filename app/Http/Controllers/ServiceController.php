@@ -11,6 +11,6 @@ class ServiceController extends Controller
         $service_name = Sevise::select("service", "cost")
             ->orderBy("service")
             ->get();
-        return view("form", ["serv" => $service_name]);
+        return response()->json($service_name);
     }
 }
