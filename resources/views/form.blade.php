@@ -106,6 +106,7 @@
             var selected = $(this).find('option:selected').val();
             //alert(selected);
             $('#second_level').html('');//очистка списка перед тем как выбрать
+            $('#third_level').html('');//очистка списка перед тем как выбрать
             $.ajax({
                 url:"/EdikKeyPrices/public/getCarMod/"+ selected,
                 method:"GET",
@@ -140,8 +141,8 @@
                     }
                 }//end success
             });//end ajax
-        });//end first_level
-    })//end ready    четвертый уровень делать нельзя, так как год выпуска повторяется для разных значений carBrand и carMod, поэтом форма id="carSelect" отправляет массив значений полей ввода формы с id="carSelect"
+        });//end first_level change
+    })//end ready
 </script>
 
 <script>
