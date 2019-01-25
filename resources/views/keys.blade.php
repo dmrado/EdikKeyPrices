@@ -30,7 +30,7 @@
 </nav>
 
 <!-- Header -->
-<header class="masthead">
+<header class="masthead" id="masthead">
     <div class="container">
         <div class="intro-text">
             <div class="intro-lead-in">Добро пожаловать на сайт нашего техцентра!</div>
@@ -513,7 +513,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <span class="copyright">Copyright &copy; chippy.ru 2018</span>
+                <span class="copyright">Copyright &copy; Radovich broth. & Po Studio, 2019</span>
             </div>
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">

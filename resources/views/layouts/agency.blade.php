@@ -43,19 +43,50 @@
     <link rel="stylesheet" href="css/bootstrap-select.min.css">
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-select.min.js"></script>
+    {{--<script src="../../js/headerPanel.js"></script>--}}
 
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css">--}}
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"></script>--}}
 
+{{--работает с bootstrap tooltip--}}
+{{--<script>--}}
+    {{--$('#example').tooltip(options)--}}
+{{--</script>--}}
 
-<script>
-    $('#ex').tooltip(options)
-</script>
-
+{{--работает с bootstrap popover --}}
 <script>
     $(function () {
         $('[data-toggle="popover"]').popover()
     })
+</script>
+
+{{--подключает эффект карусели куда пока не подключено--}}
+<script>
+    $('.carousel').carousel()
+</script>
+
+
+<script>
+
+</script>
+{{--меняет картинку в header Надо картинки добавить--}}
+<script>
+    var masthead =  $('#masthead').attr('slide', 1);
+    var timer = setInterval(function(){
+        function sliderFunc() {
+            var currentSlide = masthead.attr();
+            //проверка
+            alert (currentSlide);
+            if (currentSlide === 3) {
+                currentSlide = 1;
+            }else {
+                currentSlide++;
+            }
+            currentSlide.backgroundImage = 'url(public/img/header-bg' + currentSlide + '.jpg)';
+            masthead.attr('slide', currentSlide);
+        }
+    }, 3000);
+    //как запустить?!
 </script>
 
 

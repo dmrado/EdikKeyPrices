@@ -73,15 +73,19 @@
                                         <td>Стоимость заготовки</td>
                                         <td align="center"><span>0</span></td>
                                     </tr>
-                                    <tr id="costKey">
+                                    <tr>
                                         <td>Программирование</td>
-                                        <td align="center"><span>2000</span></td>
+                                        <td  id="costKey" align="center"><span>2000</span></td>
                                     </tr>
                                     <tr>
                                         <td id="sharpVars">Нарезка лезвия <br>
                                             <label><input type="radio" name="bladeType" value="england" checked="checked" />Английская</label><br>
                                             <label><input type="radio" name="bladeType" value="vertical"/>Вертикальная</label><br>
                                         </td>
+                                        <td align="center"><span>0</span></td>
+                                    </tr>
+                                    <tr id="costKey">
+                                        <td id="totalCost">Общая стоимость</td>
                                         <td align="center"><span>0</span></td>
                                     </tr>
                                 </table>
@@ -101,6 +105,7 @@
         </form>
     </div>
 </section>
+
 <script>
     $(document).ready(function () {
         $('#serviceSelect').selectpicker();
@@ -192,8 +197,14 @@
 </script>
 
 {{--считаем стоимость работ не доделал--}}
+{{--хочу что бы выбор услуг появлялся только после прихода изображений ключей--}}
+{{--можно по клику на кнопку с id="getKeyImgs"--}}
 <script>
     $(function () {
+        var a = $('#imgDiv').val();
+        if (!a){
+            return false;
+        }
         $('#serviceSelect').submit(function (evt) {
             var formServ = evt.target;
             var elems = formServ.elements;
@@ -204,9 +215,9 @@
                 var sharp = elems[i][2];//ст-ть нарезки английская или вертикальная динамически но у них, к счастью, фиксированная стоимость у каждой
                 alert(sharp);
             }
-            var total = draft + program + sharp;
+            var totalCost = draft + program + sharp;
             //alert(total);
-            $('#design').append(total);
+            $('#costKey').append(totalCost);
         });//end onsubmit
     });//end ready
 

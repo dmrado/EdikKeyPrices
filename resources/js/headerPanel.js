@@ -17,8 +17,9 @@ header.appendChild(h1Header);
 //div внутри header
 var slider = document.createElement('div');
 slider.setAttribute('id', 'slider');
-slider.setAttribute('class', 'text-center');
+slider.setAttribute('class', 'carousel slide');//внимание обязательно подключить bootstrap
 //own attribute for picture change handler
+slider.setAttribute('data-ride', 'carousel');
 slider.setAttribute('slide', 1);
 
 //styles for slider
@@ -30,18 +31,36 @@ slider.style.backgroundImage = 'url(images/slide1.jpg)';
 document.getElementById('header').appendChild(slider);
 //h1 within slider
 
-var timer = setInterval(function(){
-    function sliderFunc() {
-        var currentSlide = slider.getAttribute('slide');
-        //проверка
-        alert (currentSlide);
-        if (currentSlide === '5') {
-            currentSlide = 1;
-        }else {
-            currentSlide++;
-        }
-        slider.setAttribute('slide', currentSlide);
+//$('#masthead').setInterval();
 
-        slider.style.backgroundImage = 'url(images/slide' + currentSlide + '.jpg)';
-    }
-}, 3000);
+// var timer = setInterval(function(){
+//     function sliderFunc() {
+//         var currentSlide = $('#masthead').innerHTML();
+//         //проверка
+//         alert (currentSlide);
+//         if (currentSlide === '3') {
+//             currentSlide = 1;
+//         }else {
+//             currentSlide++;
+//         }
+//         currentSlide.backgroundImage = 'url(public/img/header-bg' + currentSlide + '.jpg)';
+//     }
+// }, 3000);
+
+
+// function sliderFunc() {
+//     var currentSlide = slider.getAttribute('slide');
+//     //проверка
+//     //alert (currentSlide);
+//     if (currentSlide === '3') {
+//         currentSlide = 1;
+//     }else {
+//         currentSlide++;
+//     }
+//     slider.setAttribute('slide', currentSlide);
+//
+//     slider.style.backgroundImage = 'url(public/img/header-bg' + currentSlide + '.jpg)';
+// }
+
+//подключение bootstrap carousel
+$('.carousel').carousel();
