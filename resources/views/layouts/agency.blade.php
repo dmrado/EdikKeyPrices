@@ -70,23 +70,29 @@
 
 </script>
 {{--меняет картинку в header Надо картинки добавить--}}
+{{--я не могу найти в скриптах функцию, ответственную за размещение картинки header-bg на элементе id = "masthead"--}}
 <script>
-    var masthead =  $('#masthead').attr('slide', 1);
-    var timer = setInterval(function(){
-        function sliderFunc() {
-            var currentSlide = masthead.attr();
-            //проверка
-            alert (currentSlide);
-            if (currentSlide === 3) {
-                currentSlide = 1;
-            }else {
-                currentSlide++;
-            }
-            currentSlide.backgroundImage = 'url(public/img/header-bg' + currentSlide + '.jpg)';
-            masthead.attr('slide', currentSlide);
+    var masthead = document.getElementById('masthead');
+    masthead.setAttribute('header-bg', 1);
+    //masthead.style.backgroundImage = 'url(images/header-bg.jpg)';
+    function sliderFunc() {
+        var currentSlide = masthead.attr();
+        //проверка
+        alert (currentSlide);
+        if (currentSlide === 2) {
+            currentSlide = 0;
+        }else {
+            currentSlide++;
         }
+        currentSlide.backgroundImage = 'url(public/img/header-bg' + currentSlide + '.jpg)';
+        masthead.attr('slide', currentSlide);
+    }
+</script>
+
+<script>
+    var timer = setInterval(function(){
+        sliderFunc();
     }, 3000);
-    //как запустить?!
 </script>
 
 
