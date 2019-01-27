@@ -21,7 +21,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/agency.css" rel="stylesheet">
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -76,23 +76,23 @@
     masthead.setAttribute('header-bg', 1);
     //masthead.style.backgroundImage = 'url(images/header-bg.jpg)';
     function sliderFunc() {
-        var currentSlide = masthead.attr();
+        var currentSlide = parseInt(masthead.getAttribute('slide')) || 1;
         //проверка
-        alert (currentSlide);
-        if (currentSlide === 2) {
-            currentSlide = 0;
+       // alert (currentSlide);
+        if (currentSlide === 3) {
+            currentSlide = 1;
         }else {
             currentSlide++;
         }
-        currentSlide.backgroundImage = 'url(public/img/header-bg' + currentSlide + '.jpg)';
-        masthead.attr('slide', currentSlide);
+        masthead.style.backgroundImage = 'url(img/header-bg' + currentSlide + '.jpg)';
+        masthead.setAttribute('slide', currentSlide);
     }
 </script>
 
 <script>
     var timer = setInterval(function(){
         sliderFunc();
-    }, 3000);
+    }, 5000);
 </script>
 
 
