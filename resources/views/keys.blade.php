@@ -30,14 +30,18 @@
 </nav>
 
 <!-- Header -->
-<header class="masthead" id="masthead">
-    <div class="container">
-        <div class="intro-text">
-            <div class="intro-lead-in">Добро пожаловать на сайт нашего техцентра!</div>
-            <div class="intro-heading text-uppercase">Chippy</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Наша деятельность</a>
-        </div>
-    </div>
+<header class="masthead" id="masthead" data-ride="carousel">
+    {{--<div class="carousel-inner">--}}
+        {{--<div class="carousel-item active">--}}
+                <div class="container">
+                    <div class="intro-text">
+                        <div class="intro-lead-in">Добро пожаловать на сайт нашего техцентра!</div>
+                        <div class="intro-heading text-uppercase">Chippy</div>
+                        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Наша деятельность</a>
+                    </div>
+                </div>
+            {{--</div>--}}
+        {{--</div>--}}
 </header>
 
 <!-- Наши услуги -->

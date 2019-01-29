@@ -71,22 +71,22 @@
                                     </tr>
                                     <tr>
                                         <td>Стоимость заготовки</td>
-                                        <td align="center"><span>0</span></td>
+                                        <td align="center"><span id="draftCost">0</span></td>
                                     </tr>
                                     <tr>
                                         <td>Программирование</td>
-                                        <td  id="costKey" align="center"><span>2000</span></td>
+                                        <td align="center"><span id="costProg">2000</span></td>
                                     </tr>
                                     <tr>
-                                        <td id="sharpVars">Нарезка лезвия <br>
-                                            <label><input type="radio" name="bladeType" value="england" checked="checked" />Английская</label><br>
-                                            <label><input type="radio" name="bladeType" value="vertical"/>Вертикальная</label><br>
+                                        <td>Нарезка лезвия <br>
+                                            <label><input id="sharpEng" type="radio" name="bladeType" value="500" checked="checked" />Английская</label><br>
+                                            <label><input id="sharpVert" type="radio" name="bladeType" value="800"/>Вертикальная</label><br>
                                         </td>
-                                        <td align="center"><span>0</span></td>
+                                        <td align="center"><span  id="sharpVars">0</span></td>
                                     </tr>
                                     <tr id="costKey">
-                                        <td id="totalCost">Общая стоимость</td>
-                                        <td align="center"><span>0</span></td>
+                                        <td>Общая стоимость</td>
+                                        <td align="center"><span id="totalCost">0</span></td>
                                     </tr>
                                 </table>
                             <!--здеcь будем загружать наименование работ из БД и стоимость с подсчетом тотал-->
@@ -201,47 +201,70 @@
 {{--можно по клику на кнопку с id="getKeyImgs"--}}
 <script>
     $(function () {
-        var a = $('#imgDiv').val();
-        if (!a){
-            return false;
-        }
-        $('#serviceSelect').submit(function (evt) {
-            var formServ = evt.target;
-            var elems = formServ.elements;
-           // alert(elems);
-            for (var i = 0; i < elems.length; i++){
-                var draft = elems[i][0];//стоимость заготовки должна быть динамически
-                var program = elems[i][1];//ст-ть программирования фиксированная
-                var sharp = elems[i][2];//ст-ть нарезки английская или вертикальная динамически но у них, к счастью, фиксированная стоимость у каждой
-                alert(sharp);
-            }
-            var totalCost = draft + program + sharp;
-            //alert(total);
-            $('#costKey').append(totalCost);
-        });//end onsubmit
-    });//end ready
+       $('#sharpVars').html( $('#sharpEng').val());
+    });
+</script>
 
+<script>
+    $(function(){
+        $('#sharpEng').change(function(){
+            var cost = $(this).val();
+            $('#sharpVars').html(cost);
+            sFunc();
+        });
+    });
+
+    $('#sharpVert').change(function(){
+        var cost = $(this).val();
+        $('#sharpVars').html(cost);
+        sFunc();
+    });
+</script>
+
+<script>
+    $(function () {
+        var a = $('#imgDiv').val();
+        // if (!a){
+        //     return false;
+        // }
+        sFunc()
+    });//end ready
+</script>
+
+<script>
+function sFunc() {
+    var a = $('#imgDiv').val();
+
+    // $('#serviceSelect').change(function (evt) {
+    var draft =  $('#draftCost').html();//стоимость заготовки должна быть динамически
+    var program = $('#costProg').html();//ст-ть программирования фиксированная
+    var sharp = $('#sharpVars').html();
+    var sum = (Number(draft) + Number(program) + Number(sharp));
+    // alert(sum);
+
+    $('#totalCost').html(sum);
+}
 </script>
 
 {{--получаем стоимость нарезки "английская" или "вертикальная" строка в таблице с id="sharpVars"--}}
-<script>
-    $(function () {
-        $('#sharpVars').change(function() {
-            var keySharp = $(this).find().val();
-            alert(keySharp);
-            $.ajax({
-                url: "/EdikKeyPrices/public/getSharp/" + keySharp,
-                method: "GET",
-                dataType: "json",
-                // encode: "true",
-                success: function (data) {
-                    alert('data');
-                    $('.tab table').find(child.span[2]).append(data);
-                }
-            });//end ajax
-        });//end change
-    });//end ready
-</script>
+{{--<script>--}}
+    {{--$(function () {--}}
+        {{--$('#sharpVars').change(function() {--}}
+            {{--var keySharp = $(this).find().val();--}}
+            {{--alert(keySharp);--}}
+            {{--$.ajax({--}}
+                {{--url: "/EdikKeyPrices/public/getSharp/" + keySharp,--}}
+                {{--method: "GET",--}}
+                {{--dataType: "json",--}}
+                {{--// encode: "true",--}}
+                {{--success: function (data) {--}}
+                    {{--alert('data');--}}
+                    {{--$('.tab table').find(child.span[2]).append(data);--}}
+                {{--}--}}
+            {{--});//end ajax--}}
+        {{--});//end change--}}
+    {{--});//end ready--}}
+{{--</script>--}}
 
 
 
