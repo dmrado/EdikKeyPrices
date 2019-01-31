@@ -71,11 +71,11 @@
                                     </tr>
                                     <tr>
                                         <td>Стоимость заготовки</td>
-                                        <td align="center"><span id="draftCost">0</span></td>
+                                        <td align="center"><span id="costDraft">0</span></td>
                                     </tr>
                                     <tr>
-                                        <td>Программирование</td>
-                                        <td align="center"><span id="costProg">2000</span></td>
+                                        <td><p><input type="checkbox" name="" id="costPrograming" value="">Программирование</p></td>
+                                        <td align="center"><span id="costProg">0</span></td>
                                     </tr>
                                     <tr>
                                         <td>Нарезка лезвия <br>
@@ -85,11 +85,11 @@
                                         <td align="center"><span  id="sharpVars">0</span></td>
                                     </tr>
                                     <tr id="costKey">
-                                        <td>Общая стоимость</td>
-                                        <td align="center"><span id="totalCost">0</span></td>
+                                        <td><b>Общая стоимость</b></td>
+                                        <td align="center"><b><span id="costTotal">0</span></b></td>
                                     </tr>
                                 </table>
-                            <!--здеcь будем загружать наименование работ из БД и стоимость с подсчетом тотал-->
+                            <!--здеcь можно будет загружать наименование работ из БД и стоимость если их станет много-->
                             {{--@foreach($serv as $services)--}}
                                 {{--<option value="{{$services->cost}}">{{$services->service}}</option>--}}
                             {{--@endforeach--}}
@@ -196,12 +196,12 @@
     });//end ready
 </script>
 
-{{--считаем стоимость работ не доделал--}}
+{{--считаем стоимость работ--}}
 {{--хочу что бы выбор услуг появлялся только после прихода изображений ключей--}}
 {{--можно по клику на кнопку с id="getKeyImgs"--}}
 <script>
     $(function () {
-       $('#sharpVars').html( $('#sharpEng').val());
+       $('#sharpVars').html($('#sharpEng').val());
     });
 </script>
 
@@ -231,23 +231,57 @@
     });//end ready
 </script>
 
+{{--работает исправно--}}
+<script>
+    $(function(){
+       $('#costPrograming').change(function() {
+            var costPrograming = $(this).find('input:checkbox');
+            //alert(costPrograming);
+            if(costPrograming){
+                $('#costProg').html(2000);
+               }
+
+        // не работает
+        var costProg = $('#costProg').val();
+            if (costProg == 2000){
+                alert(costProg);
+                $('#costProg').html(0);
+            }
+            sFunc()
+       });//end change
+    });//end ready
+</script>
+
+{{--не работает--}}
+{{--<script>--}}
+    {{--$(function(){--}}
+        {{--$('#costPrograming').change(function() {--}}
+            {{--function checkCostProg() {--}}
+                {{--var costProg = $('#costProg').val();--}}
+                {{--if (costProg === '') {--}}
+                    {{--alert(costProg);--}}
+                    {{--costProg.html(0);--}}
+                {{--}--}}
+                {{--sFunc()--}}
+            {{--}// end checkCostProg--}}
+        {{--});//end change--}}
+    {{--});//end ready--}}
+{{--</script>--}}
+
 <script>
 function sFunc() {
-    var a = $('#imgDiv').val();
 
-    // $('#serviceSelect').change(function (evt) {
-    var draft =  $('#draftCost').html();//стоимость заготовки должна быть динамически
+    var draft =  $('#costDraft').html();//стоимость заготовки должна быть динамически
     var program = $('#costProg').html();//ст-ть программирования фиксированная
     var sharp = $('#sharpVars').html();
     var sum = (Number(draft) + Number(program) + Number(sharp));
-    // alert(sum);
 
-    $('#totalCost').html(sum);
+    $('#costTotal').html(sum);
 }
 </script>
 
 {{--получаем стоимость нарезки "английская" или "вертикальная" строка в таблице с id="sharpVars"--}}
-{{--<script>--}}
+<script>
     {{--$(function () {--}}
         {{--$('#sharpVars').change(function() {--}}
             {{--var keySharp = $(this).find().val();--}}
@@ -264,7 +298,7 @@ function sFunc() {
             {{--});//end ajax--}}
         {{--});//end change--}}
     {{--});//end ready--}}
-{{--</script>--}}
+</script>
 
 
 
@@ -303,5 +337,10 @@ function sFunc() {
     //     evt.preventDefault();
     //     return false;//обрываем цепочку срабаотывания вызовов если объектов несколько
     // });
+</script>
+<script>
+    document.write(window.innerWidth);
+    document.write('<br/>');
+    document.write(window.innerHeight);
 </script>
 @endsection
