@@ -1,4 +1,48 @@
-@extends("layouts.agency")
+@extends(request()->route()->getController()->parentView)
+<div class="container">
+      {{--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">--}}
+        {{--Menu--}}
+        {{--<i class="fas fa-bars"></i>--}}
+    {{--</button>--}}
+    {{--<div class="collapse navbar-collapse" id="navbarResponsive">--}}
+    {{--<ul class="navbar-nav text-uppercase ml-auto">--}}
+    {{--<li class="nav-item">--}}
+    {{--<a class="nav-link js-scroll-trigger" href="#services">Услуги</a>--}}
+    {{--</li>--}}
+    {{--<li class="nav-item">--}}
+    {{--<a class="nav-link js-scroll-trigger" href="#portfolio">Автомобили</a>--}}
+    {{--</li>--}}
+    {{--<li class="nav-item">--}}
+    {{--<a class="nav-link js-scroll-trigger" href="#about">Работы</a>--}}
+    {{--</li>--}}
+    {{--<li class="nav-item">--}}
+    {{--<a class="nav-link js-scroll-trigger" href="#team">Специалисты</a>--}}
+    {{--</li>--}}
+    {{--<li class="nav-item">--}}
+    {{--<a class="nav-link js-scroll-trigger" href="#contact">Контакты</a>--}}
+    {{--</li>--}}
+    {{--</ul>--}}
+    {{--</div>--}}
+</div>
+{{--</nav>--}}
+
+
+<!-- Header -->
+<header class="masthead" id="masthead" data-ride="carousel">
+    {{--<div class="carousel-inner">--}}
+    {{--<div class="carousel-item active">--}}
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in"></div>
+            <div class="intro-heading text-uppercase">Chippy</div>
+            <a class="navbar-brand js-scroll-trigger" href="/EdikKeyPrices/public">Chippi.ru</a>
+
+            {{--<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Наша деятельность</a>--}}
+        </div>
+    </div>
+    {{--</div>--}}
+    {{--</div>--}}
+</header>
 <?php
 /** @var $carBrands [Cardrand] */
 /** @var $serv [Sevise] */
@@ -8,7 +52,7 @@
 <section>
     <div class="container"><!--нужен ли здесь параметр и какой-->
         <form action="" method="get" id="carSelect">
-            <h2 align="center">Пожалуйста выберите свой автомобиль и тип нужного ключа</h2><br/>
+            <h2 align="center">Пожалуйста выберите свой автомобиль и нужный Вам ключ:</h2><br/>
                 <div class="form-group">
                     <div class="row">
                         <label for="марка" class="sr-only"></label><br/>
@@ -48,7 +92,9 @@
                 {{--<button type="submit" class="btn btn-success" id="search">Найти</button>--}}
                 {{--</div>--}}
             {{--</div>--}}
+            <div class="row">
             <input type="submit" id="getKeyImgs" value="Получить ключи">
+            </div>
             {{--три foreign key: carbrand_id  carmod_id  caryear_id отправляются в таблицу keys за urlами картинок ключей--}}
         </form>
         <div id="imgDiv"></div>
@@ -104,7 +150,48 @@
                 </div>
         </form>
     </div>
+
+
+    <div class="container"><!--нужен ли здесь параметр и какой-->
+        <form action="" method="get" id="carSelect">
+            <h2 align="center">Пожалуйста отправьте ваше пожелание мастеру</h2><br/>
+            <div class="form-group">
+                <div class="row">
+                    <label for="customerName" class="sr-only"></label><br/>
+                    <input type="text" id="customerName" name="customerName" class="form-control" placeholder="Ваше имя"/>
+                </div>
+            </div><!--end 1 div class="form-group"-->
+            <div class="form-group">
+                <div class="row">
+                    <label for="модель" class="customerPhone"></label><br/>
+                    <input type="text" id="customerPhone" name="customerPhone" class="form-control" placeholder="Ваш телефон" data-toggle="popover"
+                           {{--title="Отправка информации мастеру" --}}
+                           data-placement="top" data-content="Мастер поучит смс с уникальным кодом и вашим выбором и свяжется с Вами для обсуждения деталей"/>
+                </div>
+            </div><!--end 2 div class="form-group"-->
+            <div class="form-group">
+                <div class="row">
+                    <label for="hidden" class="sr-only"></label><br/>
+                    <input type="hidden" id="customerOrderNum" name="" class="form-control"/>
+                </div>
+            </div><!--end 3 div class="form-group"-->
+            <div class="row">
+            <input type="submit" id="getCustomerOrder" value="Отправить">
+            </div>
+        </form>
+        <h5 align="center">Или позвоните и обсудите с ним все по телефону</h5><br/>
+        <h3 align="center">+7 (906) 790-73-84</h3>
+
+
+        <div id="imgDiv"></div>
+
+    </div>
+
 </section>
+
+<script>
+        document.body.style.backgroundImage = 'url(img/form_background_img2.png)';
+</script>
 
 <script>
     $(document).ready(function () {
