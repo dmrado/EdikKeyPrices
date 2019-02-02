@@ -74,8 +74,8 @@
                                         <td align="center"><span id="costDraft">0</span></td>
                                     </tr>
                                     <tr>
-                                        <td><p><input type="checkbox" name="" id="costPrograming" value="">Программирование</p></td>
-                                        <td align="center"><span id="costProg">0</span></td>
+                                        <td><p><input type="checkbox" name="costPrograming" id="costPrograming" value="2000" checked="checked">Программирование</p></td>
+                                        <td align="center"><span id="costProg"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Нарезка лезвия <br>
@@ -234,39 +234,19 @@
 {{--работает исправно--}}
 <script>
     $(function(){
-       $('#costPrograming').change(function() {
-            var costPrograming = $(this).find('input:checkbox');
-            //alert(costPrograming);
-            if(costPrograming){
-                $('#costProg').html(2000);
-               }
-
-        // не работает
-        var costProg = $('#costProg').val();
-            if (costProg == 2000){
-                alert(costProg);
-                $('#costProg').html(0);
-            }
-            sFunc()
-       });//end change
+        $('#costPrograming').change();
     });//end ready
+    $('#costPrograming').change(function() {
+        var costPrograming = $('input[name="costPrograming"]:checked');
+      //  alert(costPrograming.val());
+        var s = $('#costProg').html(0);
+        if(costPrograming){
+             s.html(costPrograming.val());
+        }
+        sFunc();
+    });//end change
 </script>
 
-{{--не работает--}}
-{{--<script>--}}
-    {{--$(function(){--}}
-        {{--$('#costPrograming').change(function() {--}}
-            {{--function checkCostProg() {--}}
-                {{--var costProg = $('#costProg').val();--}}
-                {{--if (costProg === '') {--}}
-                    {{--alert(costProg);--}}
-                    {{--costProg.html(0);--}}
-                {{--}--}}
-                {{--sFunc()--}}
-            {{--}// end checkCostProg--}}
-        {{--});//end change--}}
-    {{--});//end ready--}}
-{{--</script>--}}
 
 <script>
 function sFunc() {
@@ -338,6 +318,11 @@ function sFunc() {
     //     return false;//обрываем цепочку срабаотывания вызовов если объектов несколько
     // });
 </script>
+<script>
+    var wrap = document.getElementsByTagName('wrapper');
+    wrap.style.backgroundimage ="EdikKeyPrices/public/img/form_background_img1.png";
+</script>
+
 <script>
     document.write(window.innerWidth);
     document.write('<br/>');
