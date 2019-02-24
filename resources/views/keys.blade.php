@@ -85,16 +85,6 @@
     </div>
 </section>
 
-<!-- Portfolio Grid СДЕЛАТЬ СЕЛЕКТОМ ВЫПАДЕНИЕ ИЗ БАЗЫ КОНТЕНТ ПРО КАЖДЫЙ КЛЮЧ-->
-<button id="ex" type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Это окно будет появляться при наведении на фотографию ключа" data-placement="top" data-content="Сюда динамчески будут добавляться из 'keySubscr' Характеристики
-Марка: Mitsubishi
-Модель: Mitsubishi заготовка ключа с чипом (чип 46).
-Оригинал: Да
-Лезвие: Невыкидное.
-Стоимость заготовки 750 р.
-Точную стоимость узнавайте у менеджера">Нажми что бы получить поповер</button>
-
-
 
 <section class="bg-light" id="portfolio">
     <div class="container">
@@ -272,7 +262,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Работы</h2>
-                <h3 class="section-subheading text-muted">Этапы полного комплекса работ необходимых для изготовления высококачественной работающей копии вашего чипованного ключа. Вы можете выбрать как полный комплекс работ с самого первого этапа, так и начать от любого промежуточного этапа и дойти с нами до финального - получения вашего нового ключа.</h3>
+                <h3 class="section-subheading text-muted">Это этапы полного комплекса работ, необходимых для изготовления высококачественной работающей копии вашего чипованного ключа. Вы можете выбрать как полный комплекс работ с самого первого этапа, так и начать от любого промежуточного этапа и дойти с нами до финального - получения вашего нового ключа.</h3>
             </div>
         </div>
         <div class="row">
@@ -316,7 +306,7 @@
                                 <h4 class="subheading">Адаптация</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Привязка к кнопкам, <br/>адаптация ключа <br/>к <br/>автомобилю</p>
+                                <p class="text-muted">Привязка к кнопкам, <br/>адаптация ключа к <br/>автомобилю</p>
                             </div>
                         </div>
                     </li>
@@ -330,7 +320,7 @@
                                 <h4 class="subheading">Выдача</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Выдача вашего нового ключа</p>
+                                <p class="text-muted">Плучение Вами вашего нового ключа</p>
                             </div>
                         </div>
                     </li>
@@ -353,7 +343,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Сервисный центр</h2>
-                <h3 class="section-subheading text-muted">Эдик и какие-то странные телки</h3>
+                <h3 class="section-subheading text-muted">Наш центр услуг - это высококлассные приветливые специалисты, современное оборудование, качественные материалы.</h3>
             </div>
         </div>
         <div class="row">
@@ -408,7 +398,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
+                    <img class="mx-auto rounded-circle" src="img/team/3.png" alt="">
                     <h4>Материалы</h4>
                     <p class="text-muted">Использование качественных заготовок из высококачественной стали и латуни при дублировании чипованных ключей дает возможность изготовить дубликат любой сложности. Это гарантирует их высокое качество и надежность на протяжении всего срока службы</p>
                     <ul class="list-inline social-buttons">
@@ -433,7 +423,7 @@
         </div>
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <p class="large text-muted"><a href="#portfolio"  data-toggle="tooltip" title="Another one here too">Узнать стоимость работ</a></p>
+                <p class="large text-muted"><a href="http://localhost:8888/EdikKeyPrices/public/form"  data-toggle="tooltip" title="Another one here too">Подобрать услугу</a></p>
             </div>
         </div>
     </div>
@@ -473,7 +463,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Напишите нам</h2>
-                <h3 class="section-subheading text-muted">или позвоните по телефону +7 (906) 790-73-84.</h3>
+                <h3 class="section-subheading text-muted">или позвоните по телефону <b>+7 (906) 790-73-84</b></h3>
             </div>
         </div>
         <div class="row">

@@ -16,4 +16,13 @@ class CarYearController extends Controller
             ->get();
         return response()->json($carYears);
     }
+    public function export()
+    {
+        return Excel::download(new CarYearExport, 'caryears.xlsx');
+    }
+
+    public function import()
+    {
+        return Excel::import(new CarYearImport, 'caryears.xlsx');
+    }
 }

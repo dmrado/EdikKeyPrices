@@ -16,6 +16,10 @@ p {
 a {
   color: #fed136;
 }
+/*добавлено для "перейти к оценке стоимости в keys.blade.php*/
+h4 a {
+    color: #717171;
+}
 
 a:hover {
   color: #fec503;

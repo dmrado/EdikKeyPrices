@@ -16,4 +16,13 @@ class CarModController extends Controller
             ->get();
         return response()->json($carmods);
     }
+    public function export()
+    {
+        return Excel::download(new CarModExport, 'carmods.xlsx');
+    }
+
+    public function import()
+    {
+        return Excel::import(new CarModImport, 'carmods.xlsx');
+    }
 }

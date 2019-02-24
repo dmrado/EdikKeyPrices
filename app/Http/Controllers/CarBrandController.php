@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Exports\CarBrandsExport;
+use App\Imports\CarBrandsImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 use App\Carbrand;
 //use App\Carmod;
@@ -17,4 +20,14 @@ class CarBrandController extends Controller
             $carbrand_name = Carbrand::select("carbrand_name")->get();//берет отсюда
             return view("form", ["carBrands" => $carbrand_name]);//запускает шаблонизатор и вставляет сюда массив $carBrands
         }
+
+    public function export()
+    {
+        return Excel::download(new CarBrandsExport, 'carbrands.xlsx');
+    }
+
+    public function import()
+    {
+        return Excel::import(new CarBrandsImport, 'carbrands.xlsx');
+    }
 }

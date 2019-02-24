@@ -1,32 +1,4 @@
 @extends(request()->route()->getController()->parentView)
-<div class="container">
-      {{--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">--}}
-        {{--Menu--}}
-        {{--<i class="fas fa-bars"></i>--}}
-    {{--</button>--}}
-    {{--<div class="collapse navbar-collapse" id="navbarResponsive">--}}
-    {{--<ul class="navbar-nav text-uppercase ml-auto">--}}
-    {{--<li class="nav-item">--}}
-    {{--<a class="nav-link js-scroll-trigger" href="#services">Услуги</a>--}}
-    {{--</li>--}}
-    {{--<li class="nav-item">--}}
-    {{--<a class="nav-link js-scroll-trigger" href="#portfolio">Автомобили</a>--}}
-    {{--</li>--}}
-    {{--<li class="nav-item">--}}
-    {{--<a class="nav-link js-scroll-trigger" href="#about">Работы</a>--}}
-    {{--</li>--}}
-    {{--<li class="nav-item">--}}
-    {{--<a class="nav-link js-scroll-trigger" href="#team">Специалисты</a>--}}
-    {{--</li>--}}
-    {{--<li class="nav-item">--}}
-    {{--<a class="nav-link js-scroll-trigger" href="#contact">Контакты</a>--}}
-    {{--</li>--}}
-    {{--</ul>--}}
-    {{--</div>--}}
-</div>
-{{--</nav>--}}
-
-
 <!-- Header -->
 <header class="masthead" id="masthead" data-ride="carousel">
     {{--<div class="carousel-inner">--}}
@@ -93,7 +65,7 @@
                 {{--</div>--}}
             {{--</div>--}}
             <div class="row">
-            <input type="submit" id="getKeyImgs" value="Получить ключи">
+            <input type="submit" id="getKeyImgs" title="Вывод изображения ключей">
             </div>
             {{--три foreign key: carbrand_id  carmod_id  caryear_id отправляются в таблицу keys за urlами картинок ключей--}}
         </form>
@@ -101,7 +73,16 @@
 
     </div>
 <br/>
-<br/>
+
+    <!-- Portfolio Grid СДЕЛАТЬ СЕЛЕКТОМ ВЫПАДЕНИЕ ИЗ БАЗЫ КОНТЕНТ ПРО КАЖДЫЙ КЛЮЧ-->
+    <button id="ex" type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Это окно будет появляться при наведении на фотографию ключа" data-placement="top" data-content="Сюда динамически будут добавляться из 'keySubscr' Характеристики
+Марка: Mitsubishi
+Модель: Mitsubishi заготовка ключа с чипом (чип 46).
+Оригинал: Да
+Лезвие: Невыкидное.
+Стоимость заготовки 750 р.
+Точную стоимость узнавайте у менеджера">Нажми что бы получить поповер</button>
+
 <br/>
     <div class="container">
         <form action="#" method="get" id="serviceSelect" enctype="application/x-www-form-urlencoded">
@@ -116,11 +97,11 @@
                                         <th>Стоимость</th>
                                     </tr>
                                     <tr>
-                                        <td>Стоимость заготовки</td>
-                                        <td align="center"><span id="costDraft">0</span></td>
+                                        <td title="Появится при выборе ключа выше">Стоимость заготовки</td>
+                                        <td align="center"><span id="costDraft" title="Появится при выборе ключа выше">0</span></td>
                                     </tr>
                                     <tr>
-                                        <td><p><input type="checkbox" name="costPrograming" id="costPrograming" value="2000" checked="checked">Программирование</p></td>
+                                        <td><p><input type="checkbox" name="costPrograming" id="costPrograming" value="2000" checked="checked" >Программирование</p></td>
                                         <td align="center"><span id="costProg"></span></td>
                                     </tr>
                                     <tr>
@@ -153,37 +134,73 @@
 
 
     <div class="container"><!--нужен ли здесь параметр и какой-->
-        <form action="" method="get" id="carSelect">
+        <form action="" method="get" id="customerSelect">
             <h2 align="center">Пожалуйста отправьте ваше пожелание мастеру</h2><br/>
+            <div class="form-group">
+                <div class="row">
+                    <label for="customerName" class="sr-only"></label><br/>
+                    <input type="text" id="customerName" name="" class="form-control" placeholder="Ваше имя"/>
+                </div>
+            </div><!--end 1 div class="form-group"-->
+
+            <div class="form-group">
+                <div class="row">
+                    <label for="customerMail" class="sr-only"></label><br/>
+                    <input type="text" id="customerMail" name="" class="form-control" placeholder="Ваш телефон" data-toggle="popover" data-placement="top" data-content=""/>
+                </div>
+            </div><!--end 2 div class="form-group"-->
+
+            <div class="form-group">
+                <div class="row">
+                    <label for="модель" class="sr-only"></label><br/>
+                    <input type="text" id="customerPhone" name="" class="form-control" placeholder="*Ваш email" data-toggle="popover"
+                           {{--title="Отправка информации мастеру" --}}
+                           data-placement="top" data-content="Мастер получит mail с уникальным кодом и вашим выбором и свяжется с Вами для обсуждения деталей"/>
+                </div>
+            </div><!--end 3 div class="form-group"-->
+            {{--ВНИМАНИЕ !!! СГЕНЕРИРОВАТЬ И ПЕРЕДАТЬ УНИКАЛЬНЫЙ НОМЕР--}}
+            <div class="form-group">
+                <div class="row">
+                    <label for="hidden" class="sr-only"></label><br/>
+                    <input type="hidden" id="customerOrderNum" name="" class="form-control"/>
+                </div>
+            </div><!--end 4 div class="form-group"-->
+            <div class="row">
+            <input type="submit" id="getCustomerOrder" value="Отправить">
+            </div>
+        </form>
+        <h5 align="center">или позвоните и обсудите с ним по телефону все, интересующее Вас</h5><br/>
+        <h3 align="center">+7 (906) 790-73-84</h3>
+<br/>
+
+{{--Блок регистрации на сайте ИМЯ ВЗЯТЬ ИЗ КУКИ ЕСЛИ ОНО ТАМ ЕСТЬ И ВСТАВИТЬ СЮДА--}}
+        <form action="" method="post" id="loginForm" enctype="application/x-www-form-urlencoded">
+        <h2 align="center">Если хотите, зарегистрируйтесь, и мы сохраним историю наших взаимООтношений</h2><br/>
             <div class="form-group">
                 <div class="row">
                     <label for="customerName" class="sr-only"></label><br/>
                     <input type="text" id="customerName" name="customerName" class="form-control" placeholder="Ваше имя"/>
                 </div>
             </div><!--end 1 div class="form-group"-->
+
+
             <div class="form-group">
-                <div class="row">
-                    <label for="модель" class="customerPhone"></label><br/>
-                    <input type="text" id="customerPhone" name="customerPhone" class="form-control" placeholder="Ваш телефон" data-toggle="popover"
-                           {{--title="Отправка информации мастеру" --}}
-                           data-placement="top" data-content="Мастер поучит смс с уникальным кодом и вашим выбором и свяжется с Вами для обсуждения деталей"/>
-                </div>
-            </div><!--end 2 div class="form-group"-->
-            <div class="form-group">
-                <div class="row">
-                    <label for="hidden" class="sr-only"></label><br/>
-                    <input type="hidden" id="customerOrderNum" name="" class="form-control"/>
-                </div>
-            </div><!--end 3 div class="form-group"-->
             <div class="row">
-            <input type="submit" id="getCustomerOrder" value="Отправить">
+                <label for="login" class="sr-only"></label><br/>
+                <input type="text" id="login" name="login" class="form-control" placeholder="Придумайте логин, английскими буквами*"/>
+            </div>
+        </div><!--end 1 div class="form-group"-->
+
+        <div class="form-group">
+            <div class="row">
+                <label for="password" class="sr-only"></label><br/>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Придумайте пароль, английскими буквами и цифрами*" data-toggle="popover" data-placement="top" data-content=""/>
+            </div>
+        </div><!--end 2 div class="form-group"-->
+            <div class="row">
+                <input type="submit" id="submit" value="Зарегистрироваться">
             </div>
         </form>
-        <h5 align="center">Или позвоните и обсудите с ним все по телефону</h5><br/>
-        <h3 align="center">+7 (906) 790-73-84</h3>
-
-
-        <div id="imgDiv"></div>
 
     </div>
 
@@ -253,7 +270,7 @@
     })//end ready
 </script>
 
-{{--вынимаем из базы картинки ключей по url--}}
+{{--вынимаем из базы картинки ключей по url и выводим в div #imgDiv--}}
 <script>
     $(function () {
         $('#getKeyImgs').click(function (e) {
@@ -285,7 +302,7 @@
 
 {{--считаем стоимость работ--}}
 {{--хочу что бы выбор услуг появлялся только после прихода изображений ключей--}}
-{{--можно по клику на кнопку с id="getKeyImgs"--}}
+{{--но можно и по клику на кнопку с id="getKeyImgs"--}}
 <script>
     $(function () {
        $('#sharpVars').html($('#sharpEng').val());
@@ -367,7 +384,27 @@ function sFunc() {
     {{--});//end ready--}}
 </script>
 
-
+{{--здесь регистрируем пользователя ВЫНЕСТИ ЭТУ ФУНКЦИЮ В ОТДЕЛЬНЫЙ ФАЙЛ И ОСТАЛЬНЫЕ ТОЖЕ--}}
+<script>
+    var oAJAX = new XMLHttpRequest();
+    var loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function (evt) {
+        var oForm = evt.target;
+        var s = "";
+        var cEls = oForm.elements;//получает 7 элементов: имя, логин, пароль, "Зарегистрироваться", метод, экшен, кодировщик
+        for(var i in cEls){
+            if(s !=="") s+="&";
+            s += cEls[i].name + "=" + encodeURIComponent(cEls[i].value);
+          //alert(s);
+        }
+        oAJAX.open(oForm.method, oForm.action, true);
+        oAJAX.setRequestHeader("Content-type", oForm.enctype);
+        oAJAX.send(s);
+        alert(s);
+        evt.preventDefault();
+        //обработать результат записи пользователя в таблицу users
+    });
+</script>
 
 <div id="page-wrapper"></div>
 <script>

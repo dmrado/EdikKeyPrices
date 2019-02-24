@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Carmod extends Model
 {
-//    public $carmod_id;
-//    public $carmod_name;
-
     public function caryears(){
         return $this->hasMany("App\Caryear", "caryear_id", "carmod_id");
     }

@@ -45,3 +45,8 @@ Route::get('/getService', 'ServiceController@getService');
 
 //Route::get('/lessons', 'LessonController@getlessons');
 //Route::get('/lessons/{someLesson}', 'LessonController@getlesson');//нет контроллера
+Route::get('/users/export', 'UsersController@export');
+Route::get('/users/import', 'UsersController@import');
+
+Route::get('/carbrands/export', 'CarBrandController@export');
+Route::get('/carbrands/import', 'CarBrandController@import');
