@@ -406,6 +406,38 @@ function sFunc() {
     });
 </script>
 
+{{--сбор со страницы данных заказа для mail Эдику--}}
+<script>
+    document.onsubmit = function () {
+        var first_level = document.getElementById("first_level");
+        var second_level = document.getElementById("second_level");
+        var third_level = document.getElementById("third_level");
+        var order = {
+            first_level: first_level,
+            second_level: second_level,
+            third_level: third_level
+        }//order отправить в OrderShipped.php в view
+    }
+</script>
+
+<script>
+    document.onsubmit = function () {
+        var customerName = document.getElementById("customerName");
+        var customerPhone = document.getElementById("customerPhone");
+        var customerMail = document.getElementById("customerMail");
+        var customerOrderNum = document.getElementById("customerOrderNum");
+        var costTotal = document.getElementById("costTotal");
+        var client = {
+            customerName: customerName,
+            customerPhone: customerPhone,
+            customerMail: customerMail,
+            customerOrderNum: customerOrderNum,
+            costTotal: costTotal
+        };//client отправить в OrderShipped.php в view
+        alert(customerName);
+    }
+</script>
+
 <div id="page-wrapper"></div>
 <script>
     // var carSelect = document.getElementById('carSelect');
@@ -447,9 +479,10 @@ function sFunc() {
     wrap.style.backgroundimage ="EdikKeyPrices/public/img/form_background_img1.png";
 </script>
 
-<script>
-    document.write(window.innerWidth);
-    document.write('<br/>');
-    document.write(window.innerHeight);
-</script>
+{{--вычисление и просмотр размера document--}}
+{{--<script>--}}
+    {{--document.write(window.innerWidth);--}}
+    {{--document.write('<br/>');--}}
+    {{--document.write(window.innerHeight);--}}
+{{--</script>--}}
 @endsection
