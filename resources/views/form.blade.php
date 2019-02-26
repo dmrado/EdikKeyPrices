@@ -178,8 +178,8 @@
         <h2 align="center">Если хотите, зарегистрируйтесь, и мы сохраним историю наших взаимООтношений</h2><br/>
             <div class="form-group">
                 <div class="row">
-                    <label for="customerName" class="sr-only"></label><br/>
-                    <input type="text" id="customerName" name="customerName" class="form-control" placeholder="Ваше имя"/>
+                    <label for="customerName1" class="sr-only"></label><br/>
+                    <input type="text" id="customerName1" name="customerName1" class="form-control" placeholder="Ваше имя"/>
                 </div>
             </div><!--end 1 div class="form-group"-->
 
@@ -408,25 +408,29 @@ function sFunc() {
 
 {{--сбор со страницы данных заказа для mail Эдику--}}
 <script>
-    document.onsubmit = function () {
-        var first_level = document.getElementById("first_level");
-        var second_level = document.getElementById("second_level");
-        var third_level = document.getElementById("third_level");
+
+    var customerSelect = document.getElementById('carSelect');
+        customerSelect.onsubmit = function () {
+        var first_level = document.getElementById("first_level").value;
+        var second_level = document.getElementById("second_level").value;
+        var third_level = document.getElementById("third_level").value;
         var order = {
             first_level: first_level,
             second_level: second_level,
             third_level: third_level
         }//order отправить в OrderShipped.php в view
-    }
+            console.log(order);
+        }
 </script>
 
 <script>
-    document.onsubmit = function () {
-        var customerName = document.getElementById("customerName");
-        var customerPhone = document.getElementById("customerPhone");
-        var customerMail = document.getElementById("customerMail");
-        var customerOrderNum = document.getElementById("customerOrderNum");
-        var costTotal = document.getElementById("costTotal");
+    var carSelect = document.getElementById("customerSelect");
+        carSelect.onsubmit = function () {
+        var customerName = document.getElementById("customerName").value;
+        var customerPhone = document.getElementById("customerPhone").value;
+        var customerMail = document.getElementById("customerMail").value;
+        var customerOrderNum = document.getElementById("customerOrderNum").value;
+        var costTotal = document.getElementById("costTotal").value;
         var client = {
             customerName: customerName,
             customerPhone: customerPhone,
@@ -434,7 +438,7 @@ function sFunc() {
             customerOrderNum: customerOrderNum,
             costTotal: costTotal
         };//client отправить в OrderShipped.php в view
-        alert(customerName);
+            alert(client);
     }
 </script>
 
