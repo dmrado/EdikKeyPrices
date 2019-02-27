@@ -408,7 +408,7 @@ function sFunc() {
 
 {{--сбор со страницы данных заказа для mail Эдику--}}
 <script>
-
+    //забираем данные машины в объект order
     var customerSelect = document.getElementById('carSelect');
         customerSelect.onsubmit = function () {
         var first_level = document.getElementById("first_level").value;
@@ -424,21 +424,32 @@ function sFunc() {
 </script>
 
 <script>
+    //забираем данные клиента в объект client
     var carSelect = document.getElementById("customerSelect");
         carSelect.onsubmit = function () {
-        var customerName = document.getElementById("customerName").value;
-        var customerPhone = document.getElementById("customerPhone").value;
-        var customerMail = document.getElementById("customerMail").value;
-        var customerOrderNum = document.getElementById("customerOrderNum").value;
-        var costTotal = document.getElementById("costTotal").value;
+            var customerName = document.getElementById("customerName").value;
+            var customerPhone = document.getElementById("customerPhone").value;
+            var customerMail = document.getElementById("customerMail").value;
+            var customerOrderNum = document.getElementById("customerOrderNum").value;
+
         var client = {
             customerName: customerName,
             customerPhone: customerPhone,
             customerMail: customerMail,
             customerOrderNum: customerOrderNum,
-            costTotal: costTotal
         };//client отправить в OrderShipped.php в view
             alert(client);
+        }
+</script>
+
+<script>
+    //забираем стоимость в объект cost
+    var serviceSelect = document.getElementById("serviceSelect");
+    serviceSelect.onchange = function () {
+        var costTotal = document.getElementById("costTotal").value;
+        var cost = {
+            costTotal: costTotal
+        }
     }
 </script>
 
