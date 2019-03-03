@@ -1,6 +1,14 @@
 @extends(request()->route()->getController()->parentView)
 <!-- Header -->
-<header class="masthead" id="masthead" data-ride="carousel">
+<div id="wrapper">
+    <div id="inner">
+        <div class="slide one">one</div>
+        <div class="slide two">two</div>
+        <div class="slide three">three</div>
+        <div class="slide four">four</div>
+    </div>
+</div>
+<header class="masthead" id="masthead"> <!--data-ride="carousel"-->
     {{--<div class="carousel-inner">--}}
     {{--<div class="carousel-item active">--}}
     <div class="container">
@@ -206,22 +214,58 @@
 
 </section>
 
+{{--карусель самодельная--}}
+<script>
+    var slideCount = $(".slide").length;
+
+    var wrapperWidth = $("#wrapper").width();
+    $(".slide").width(wrapperWidth);
+    $('#inner').css('width', wrapperWidth * slideCount + 'px');
+    //wrapperWidth - в данном случае 400px css
+    $("#inner").css("left", - wrapperWidth + "px");
+    $("#inner .slide:last-child").prependTo("#inner");
+
+    function nextSlide() {
+        $("#inner .slide:first-child").appendTo("#inner");
+        $("#inner").css("left", "0");
+        $('#inner').animate({
+            'left': - wrapperWidth + 'px'
+        }, 2000);
+    }
+    //setInterval(nextSlide, 3000);
+
+    function prevSlide() {
+        $('#inner').animate({
+            'left': 0 + 'px'
+        }, 2000, "swing", function(){
+            $("#inner").css("left", - wrapperWidth + "px");//резервируем место
+            $("#inner .slide:last-child").prependTo("#inner");//вставляем туда узел
+        });
+
+    }
+    setInterval(prevSlide, 3000);
+</script>
+
+{{--фон формы--}}
 <script>
         document.body.style.backgroundImage = 'url(img/form_background_img2.png)';
 </script>
 
+{{--не работает, не нужно--}}
 <script>
     $(document).ready(function () {
         $('#serviceSelect').selectpicker();
     });
 </script>
 
+{{--не работает, не нужно--}}
 <script>
     $(function () {
         $('[data-toggle="popover"]').popover()
     })
 </script>
 
+{{--не работает, не нужно--}}
 <script>$('#example').tooltip(options)</script>
 
 {{--multiselect--}}
@@ -495,9 +539,9 @@ function sFunc() {
 </script>
 
 {{--вычисление и просмотр размера document--}}
-{{--<script>--}}
-    {{--document.write(window.innerWidth);--}}
-    {{--document.write('<br/>');--}}
-    {{--document.write(window.innerHeight);--}}
-{{--</script>--}}
+<script>
+    document.write(window.innerWidth);
+    document.write('<br/>');
+    document.write(window.innerHeight);
+</script>
 @endsection
