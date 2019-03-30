@@ -176,7 +176,7 @@ img::-moz-selection {
     padding: 12px 0;
   }
 }
-
+/*
 #wrapper{
     position:relative;
     height: 200px;
@@ -195,21 +195,17 @@ img::-moz-selection {
 }
 
 .one{
-    background-color: red;
+    background: url("../img/header-bg1.jpg");
 }
 
 .two{
-    background-color: blue;
+    background: url("../img/header-bg2.jpg");
 }
 
 .three{
-    background-color: green;
+    background: url("../img/header-bg3.jpg");
 }
-
-.four{
-    background-color: orange;
-}
-
+*/
 header.masthead {
   text-align: center;
   color: white;

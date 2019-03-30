@@ -30,14 +30,13 @@
 </nav>
 
 <!-- Header -->
-<div id="wrapper">
-    <div id="inner">
-        <div class="slide one">one</div>
-        <div class="slide two">two</div>
-        <div class="slide three">three</div>
-        <div class="slide four">four</div>
-    </div>
-</div>
+{{--<div id="wrapper">--}}
+    {{--<div id="inner">--}}
+        {{--<div class="slide one">one</div>--}}
+        {{--<div class="slide two">two</div>--}}
+        {{--<div class="slide three">three</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 <header class="masthead" id="masthead" data-ride="carousel">
     {{--<div class="carousel-inner">--}}

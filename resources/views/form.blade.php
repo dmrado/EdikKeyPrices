@@ -1,13 +1,13 @@
 @extends(request()->route()->getController()->parentView)
 <!-- Header -->
-<div id="wrapper">
-    <div id="inner">
-        <div class="slide one">one</div>
-        <div class="slide two">two</div>
-        <div class="slide three">three</div>
-        <div class="slide four">four</div>
-    </div>
-</div>
+{{--<div id="wrapper">--}}
+    {{--<div id="inner">--}}
+        {{--<div class="slide one">one</div>--}}
+        {{--<div class="slide two">two</div>--}}
+        {{--<div class="slide three">three</div>--}}
+        {{--<div class="slide four">four</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
 <header class="masthead" id="masthead"> <!--data-ride="carousel"-->
     {{--<div class="carousel-inner">--}}
     {{--<div class="carousel-item active">--}}
@@ -211,7 +211,6 @@
         </form>
 
     </div>
-
 </section>
 
 {{--карусель самодельная--}}
@@ -220,7 +219,7 @@
 
     var wrapperWidth = $("#wrapper").width();
     $(".slide").width(wrapperWidth);
-    $('#inner').css('width', wrapperWidth * slideCount + 'px');
+    $('#inner').css('width', wrapperWidth * slideCount + "px");
     //wrapperWidth - в данном случае 400px css
     $("#inner").css("left", - wrapperWidth + "px");
     $("#inner .slide:last-child").prependTo("#inner");
