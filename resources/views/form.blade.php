@@ -1,4 +1,5 @@
 @extends(request()->route()->getController()->parentView)
+<?php $tmpBaseUrl = ''; //'/EdikKeyPrices/public' ?>
 <!-- Header -->
 {{--<div id="wrapper">--}}
     {{--<div id="inner">--}}
@@ -15,7 +16,7 @@
         <div class="intro-text">
             <div class="intro-lead-in"></div>
             <div class="intro-heading text-uppercase">Chippy</div>
-            <a class="navbar-brand js-scroll-trigger" href="/EdikKeyPrices/public">Chippi.ru</a>
+            <a class="navbar-brand js-scroll-trigger" href="{{ $tmpBaseUrl }}">Chippi.ru</a>
 
             {{--<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Наша деятельность</a>--}}
         </div>
@@ -276,7 +277,7 @@
             $('#second_level').html('');//очистка списка перед тем как выбрать
             $('#third_level').html('');
             $.ajax({
-                url:"/EdikKeyPrices/public/getCarMod/"+ selected,
+                url:"{{ $tmpBaseUrl }}/getCarMod/"+ selected,
                 method:"GET",
                 dataType: "json",
                 // encode: "true",
@@ -296,7 +297,7 @@
             $('#third_level').html('');//очистка списка перед тем как выбрать
            // alert(selected);
             $.ajax({
-                url:"/EdikKeyPrices/public/getCarYear/"+ selected,
+                url:"{{ $tmpBaseUrl }}/getCarYear/"+ selected,
                 method:"GET",
                 dataType: "json",
                 // encode: "true",
@@ -324,7 +325,7 @@
                 return false;
             }
             $.ajax({
-                url:"/EdikKeyPrices/public/getKey/"+ carYearId,
+                url:"{{ $tmpBaseUrl }}/public/getKey/"+ carYearId,
                 method:"GET",
                 dataType: "json",
                 // encode: "true",
@@ -414,7 +415,7 @@ function sFunc() {
             {{--var keySharp = $(this).find().val();--}}
             {{--alert(keySharp);--}}
             {{--$.ajax({--}}
-                {{--url: "/EdikKeyPrices/public/getSharp/" + keySharp,--}}
+                {{--url: "{{ $tmpBaseUrl }}/getSharp/" + keySharp,--}}
                 {{--method: "GET",--}}
                 {{--dataType: "json",--}}
                 {{--// encode: "true",--}}
@@ -534,7 +535,7 @@ function sFunc() {
 </script>
 <script>
     var wrap = document.getElementsByTagName('wrapper');
-    wrap.style.backgroundimage ="EdikKeyPrices/public/img/form_background_img1.png";
+    wrap.style.backgroundimage ="{{ $tmpBaseUrl }}/img/form_background_img1.png";
 </script>
 
 {{--вычисление и просмотр размера document--}}
