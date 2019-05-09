@@ -1,5 +1,5 @@
 @extends(request()->route()->getController()->parentView)
-<?php $tmpBaseUrl = ''; //'/EdikKeyPrices/public' ?>
+<?php $tmpBaseUrl = '/EdikKeyPrices/public' //это локальный адрес на моем компе?>
 <!-- Header -->
 {{--<div id="wrapper">--}}
     {{--<div id="inner">--}}
