@@ -25,4 +25,10 @@ class CarModController extends Controller
     {
         return Excel::import(new CarModImport, 'carmods.xlsx');
     }
+
+    public function ajaxGetCarModel($id){
+        return Carmod::select("carmod_name",  "carmod_id")
+            ->where('carbrand_id', '=', $id)
+            ->get();
+    }
 }

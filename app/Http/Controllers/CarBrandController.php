@@ -30,4 +30,8 @@ class CarBrandController extends Controller
     {
         return Excel::import(new CarBrandsImport, 'carbrands.xlsx');
     }
+
+    public function ajaxGetCarBrand(){
+        return Carbrand::select("carbrand_name", "carbrand_id")->get();
+    }
 }

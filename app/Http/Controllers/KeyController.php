@@ -11,7 +11,7 @@ class KeyController extends Controller
 {
     public function getKey($carKey){
         $imgKey = Key::where("caryear_id", $carKey)->get();
-        return response()->json( $imgKey);
+        return response()->json($imgKey);
     }
 
     public function export()
@@ -22,5 +22,11 @@ class KeyController extends Controller
     public function import()
     {
         return Excel::import(new KeyImport, 'keys.xlsx');
+    }
+
+    public function ajaxGetKey($id){
+        return Key::select('keyPict', 'keySubscr', 'keyName')
+            ->where('caryear_id', '=', $id)
+            ->get();
     }
 }

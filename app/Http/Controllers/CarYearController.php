@@ -25,4 +25,10 @@ class CarYearController extends Controller
     {
         return Excel::import(new CarYearImport, 'caryears.xlsx');
     }
+
+    public function ajaxGetCarYear($id){
+        return Caryear::select('caryear', 'caryear_id')
+            ->where('carmod_id', '=', $id)
+            ->get();
+    }
 }
