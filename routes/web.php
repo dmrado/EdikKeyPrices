@@ -54,4 +54,7 @@ Route::get('/carbrands/import', 'CarBrandController@import');
 Route::get('/ajax/brands', 'CarBrandController@ajaxGetCarBrand');
 Route::get('/ajax/models/{id}', 'CarModController@ajaxGetCarModel');
 Route::get('/ajax/years/{id}', 'CarYearController@ajaxGetCarYear');
+
+Route::get('/ajax/years/import', 'CarYearController@import');
+
 Route::get('/ajax/keys/{id}', 'KeyController@ajaxGetKey');

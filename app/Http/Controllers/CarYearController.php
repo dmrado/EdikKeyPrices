@@ -23,7 +23,7 @@ class CarYearController extends Controller
 
     public function import()
     {
-        return Excel::import(new CarYearImport, 'caryears.xlsx');
+        return Excel::import(new CarYearImport, 'https://docs.google.com/spreadsheets/d/1E_OAeTOdv0ZBpA2CcyPsU8H8GrLr8cHy/edit#gid=2100417926');
     }
 
     public function ajaxGetCarYear($id){
