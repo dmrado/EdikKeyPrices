@@ -24,8 +24,8 @@ class KeyController extends Controller
         return Excel::import(new KeyImport, 'keys.xlsx');
     }
 
-    public function ajaxGetKey($id){
-        return Key::select('keyPict', 'keySubscr', 'keyName')
+    public function ajaxGetKey($id){// caryear_id вызывает подходящие карточки ключей
+        return Key::select('keyName', 'keySubscr', 'keyPict', 'keyPrice', 'type')
             ->where('caryear_id', '=', $id)
             ->get();
     }
