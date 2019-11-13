@@ -58,3 +58,5 @@ Route::get('/ajax/years/{id}', 'CarYearController@ajaxGetCarYear');
 Route::get('/ajax/years/import', 'CarYearController@import');
 
 Route::get('/ajax/keys/{caryear}', 'KeyController@ajaxGetKey');
+
+Route::get('/mailer', 'OrderController@sendMail');

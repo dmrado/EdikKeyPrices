@@ -26,10 +26,16 @@ class OrderShipped extends Mailable
      *
      * @return $this
      */
-    public function build()
-    {// from забрать из form.blade.php client: customerMail, customerPhone, customerName
-        return $this->  from (['address' => 'example@example.ru', 'name' => 'App name'])
-                    ->  view('view.name');
-        //order: customerOrderNum, first_level, second_level, third_level, costTotal
-    }
+        public function build()
+        {
+            return $this->from(['address' => 'example@example.ru', 'name' => 'App name'])
+                ->view('emails.orderShipped');
+            order:
+        }
+
+//    {// from забрать из form.blade.php client: customerMail, customerPhone, customerName
+//        return $this->  from (['address' => 'example@example.ru', 'name' => 'App name'])
+//                    ->  view('mails.orderShipped');
+//        //order: customerOrderNum, first_level, second_level, third_level, costTotal
+//    }
 }
