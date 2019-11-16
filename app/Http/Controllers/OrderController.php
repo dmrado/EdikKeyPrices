@@ -3,11 +3,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\UserController;
 use App\Order;
 use App\Mail\OrderShipped;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-//use App\Http\Controllers\Controller;
+
 
 class OrderController extends Controller
 {
@@ -19,9 +20,14 @@ class OrderController extends Controller
      * @return Response
      */
 
-    //как принять с фронта и распаковать JSON объект
-
     public function sendMail(){
+        $userData = new UserController();
+
+        $name = $userData->name;
+        $mail = UserController::mail;
+        $phone = UserController::phone;
+        $message = UserController::message;
+
         Mail::send('emails.orderShipped', array('key' => 'value'), function($message)
         {
             $email = 'dmrado@yandex.ru';
