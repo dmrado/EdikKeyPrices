@@ -59,4 +59,4 @@ Route::get('/ajax/years/import', 'CarYearController@import');
 
 Route::get('/ajax/keys/{caryear}', 'KeyController@ajaxGetKey');
 
-Route::get('/mailer', 'OrderController@sendMail');
+Route::post('/mailer', 'UserController@store');
