@@ -1,11 +1,11 @@
 <html>
     <body>
-        <h3>Заказ от {{$name}}</h3>
-            <p>
-                {{$message}}
-                {{$product2->getSummaryLine()}}
-                Ответить отправителю {{$email}}
-                Позвонить отправителю {{$phone}}
-            </p>
+        <h3>Сообщение от заказчика {{$customerName}}</h3>
+    <p>
+        Текст сообщения: {{$customerMessage}}
+    </p>
+    <p>
+       Ответить заказчику {{$email}} или позвонить {{$customerPhone}}
+    </p>
     </body>
 </html>
