@@ -33,15 +33,3 @@ class CdProduct extends ShopProduct
         return $base;
     }
 }
-
-$product2 = new CDProduct(
-    "Классическая музыка. Лучшее",
-    "Антонио",
-    "Вивальди",
-    10.99,
-    0,
-    60.33
-);
-
-//метод из родительского класса вызывается для объекта текущего класса
-print "Исполнитель: {$product2->getProducer()}\n";
