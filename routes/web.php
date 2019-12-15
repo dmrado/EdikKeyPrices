@@ -51,12 +51,12 @@ Route::get('/users/import', 'UsersController@import');
 Route::get('/carbrands/export', 'CarBrandController@export');
 Route::get('/carbrands/import', 'CarBrandController@import');
 
-Route::get('/ajax/brands', 'CarBrandController@ajaxGetCarBrand');
-Route::get('/ajax/models/{id}', 'CarModController@ajaxGetCarModel');
-Route::get('/ajax/years/{id}', 'CarYearController@ajaxGetCarYear');
+Route::get('/ajax/brands', 'CarBrandController@ajaxGetCarBrand')->middleware('cors');
+Route::get('/ajax/models/{id}', 'CarModController@ajaxGetCarModel')->middleware('cors');
+Route::get('/ajax/years/{id}', 'CarYearController@ajaxGetCarYear')->middleware('cors');
 
 Route::get('/ajax/years/import', 'CarYearController@import');
 
-Route::get('/ajax/keys/{caryear}', 'KeyController@ajaxGetKey');
+Route::get('/ajax/keys/{caryear}', 'KeyController@ajaxGetKey')->middleware('cors');
 
 Route::post('/mailer', 'UserController@store');
