@@ -11,14 +11,6 @@ use App\Caryear;
 class CarYearController extends Controller
 {
 
-    public $caryear_start;
-    public $caryear_finish;
-
-    public function __construct($caryear_start, $caryear_finish){
-        $this->caryear_start = $caryear_start;
-        $this->caryear_finish = $caryear_finish;
-    }
-
     public function getCarYear($carmod){
         $carYears = Caryear::where("carmod_id", $carmod)
             ->orderBy("caryear")
